@@ -1,0 +1,19 @@
+JDK (www.oracle.com)
+	1. Java JDK (8)
+	2. JAVA_HOME = bin을 제외한 java 경로
+	3. path = %JAVA_HOME%\bin
+
+Tomcat (tomcat.apache.org)
+	1. Tomcat core zip (8)
+	2. link Eclipse
+
+Eclipse (www.eclipse.org)
+	1. Eclipse Java EE IDE (Neon)
+	2. Tomcat settings (server double click)
+		server location : use tomcat installation
+		server option : public module contexts to separate XML files
+	3. Spring Tool Suite
+		download & install STS from eclipse marketplace (check version)
+	4. project
+		Spring Legacy Project
+		Simple Spring Maven

@@ -1,0 +1,12 @@
+General
+	src/main/java : *.java files
+Concept
+	Description
+		When object A needs objects B & C -> A depends on B & C
+			1 : A directly creates B & C
+			2 : B & C are created in advance somewhere(IOC container) then injected/inserted(DI method) into A
+	DI : Dependency Injection (의존성 주입)
+	IOC : Inversion of Control
+	Spring : DI + IOC
+		group of libraries that create and assemble logic parts
+		부품을 생성/조립하는 라이브러리 집합체
