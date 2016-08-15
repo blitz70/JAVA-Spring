@@ -1,4 +1,4 @@
-package kr.co.iamtek.spring1;
+package kr.co.iamtek;
 
 public class Main {
 
