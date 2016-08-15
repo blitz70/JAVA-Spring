@@ -1,5 +1,3 @@
-General
-	src/main/java : *.java files
 Concept
 	Description
 		When object A needs objects B & C -> A depends on B & C
@@ -9,4 +7,29 @@ Concept
 	IOC : Inversion of Control
 	Spring : DI + IOC
 		group of libraries that create and assemble logic parts
-		부품을 생성/조립하는 라이브러리 집합체
+		
+DI, Spring setting
+	Class : create required classes, must have setters for fields
+		private Calculator calculator;
+		private int firstNum;
+		private int secondNum;
+		public void setCalculator(Calculator calculator) {this.calculator = calculator;}
+		public void setFirstNum(int firstNum) {this.firstNum = firstNum;}
+		public void setSecondNum(int secondNum) {this.secondNum = secondNum;}
+	Bean : create & setup bean config file
+		add required classes as bean to beans container, set properties, variable naming IS important
+		1. create spring bean configuration file
+			src/main/resource : applicationCTX.xml
+		2. add class as bean
+			<bean id="calculator" class="kr.co.iamtek.Calculator" />
+		3. add properties
+			<bean ...>
+				<property name="calculator" ref="calculator" />
+				<property name="firstNum" value="10" />
+				<property name="secondNum" value="2" />
+			</bean>
+	Use : get required class objects as beans from bean config.
+		String configLocation = "classpath:applicationCTX.xml";
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+		MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
+	

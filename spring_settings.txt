@@ -17,3 +17,7 @@ Eclipse (www.eclipse.org)
 	4. project
 		Spring Legacy Project
 		Simple Spring Maven
+
+Spring project
+	src/main/java : class files (.java)
+	src/main/resources : spring bean configuration file (applicationCTX.xml)
