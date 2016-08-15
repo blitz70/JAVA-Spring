@@ -21,3 +21,4 @@ Eclipse (www.eclipse.org)
 Spring project
 	src/main/java : class files (.java)
 	src/main/resources : spring bean configuration file (applicationCTX.xml)
+	JRE error : set jre system library to workspace default jre

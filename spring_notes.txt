@@ -1,14 +1,15 @@
-Concept
+1-2 : Concept
 	Description
 		When object A needs objects B & C -> A depends on B & C
 			1 : A directly creates B & C
 			2 : B & C are created in advance somewhere(IOC container) then injected/inserted(DI method) into A
 	DI : Dependency Injection (의존성 주입)
-	IOC : Inversion of Control
+	IOC Container
+		IOC(Inversion of Control) container, spring container, bean container
 	Spring : DI + IOC
 		group of libraries that create and assemble logic parts
 		
-DI, Spring setting
+ 3-4 : DI, Spring setting
 	Class : create required classes, must have setters for fields
 		private Calculator calculator;
 		private int firstNum;
@@ -16,8 +17,8 @@ DI, Spring setting
 		public void setCalculator(Calculator calculator) {this.calculator = calculator;}
 		public void setFirstNum(int firstNum) {this.firstNum = firstNum;}
 		public void setSecondNum(int secondNum) {this.secondNum = secondNum;}
-	Bean : create & setup bean config file
-		add required classes as bean to beans container, set properties, variable naming IS important
+	Bean : create & setup IOC container via config file
+		add required classes as bean to IOC container, set properties, variable naming IS important
 		1. create spring bean configuration file
 			src/main/resource : applicationCTX.xml
 		2. add class as bean
@@ -28,8 +29,9 @@ DI, Spring setting
 				<property name="firstNum" value="10" />
 				<property name="secondNum" value="2" />
 			</bean>
-	Use : get required class objects as beans from bean config.
+	Use : get required class instances as beans from IOC container
 		String configLocation = "classpath:applicationCTX.xml";
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
 		MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
-	
+		ctx : IOC container
+		getBean : get the required bean(class instance) for use
