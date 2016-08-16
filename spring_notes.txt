@@ -9,7 +9,7 @@
 	Spring : DI + IOC
 		group of libraries that create and assemble logic parts
 		
-3-4 : DI, Spring setting
+3-4 : DI, Spring setting & setter method
 	Class : create required classes, must have setters for fields
 		private Calculator calculator;
 		private int firstNum;
@@ -23,7 +23,7 @@
 			src/main/resource : applicationCTX.xml
 		2. add class as bean
 			<bean id="calculator" class="kr.co.iamtek.Calculator" />
-		3. add properties
+		3. add properties via setters
 			<bean ...>
 				<property name="calculator" ref="calculator" />
 				<property name="firstNum" value="10" />
@@ -35,3 +35,27 @@
 		MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
 		ctx : IOC container
 		getBean : get the required bean(class instance) for use
+
+5 : DI
+	constructor method
+		Class : create required classes, must have constructor with fields
+			private String name;private String gender;private String age;private String job;
+			public Person(String name, String gender, String age, String job) {}
+		Bean : Add bean properties via constructor (instead of setters)
+			<bean id="person2" class="kr.co.iamtek.Person">
+				<constructor-arg>
+					<value>김성규</value>
+				</constructor-arg>
+				<constructor-arg value="남성" />
+			</bean>
+			<bean id="personInfo1" class="kr.co.iamtek.PersonInfo">
+				<constructor-arg>
+					<ref bean="person1"/>
+				</constructor-arg>
+			</bean>
+			<bean id="personInfo2" class="kr.co.iamtek.PersonInfo">
+				<constructor-arg ref="person2" />
+			</bean>
+	DI advantages
+		one can change the behavior of an application using the bean config file with no java code change
+		
