@@ -9,7 +9,7 @@
 	Spring : DI + IOC
 		group of libraries that create and assemble logic parts
 		
- 3-4 : DI, Spring setting
+3-4 : DI, Spring setting
 	Class : create required classes, must have setters for fields
 		private Calculator calculator;
 		private int firstNum;
