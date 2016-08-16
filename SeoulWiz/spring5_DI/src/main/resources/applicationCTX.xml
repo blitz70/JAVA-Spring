@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="person1" class="kr.co.iamtek.Person">
+		<constructor-arg>
+			<value>김성규</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>남성</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>46세</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>백수</value>
+		</constructor-arg>
+	</bean>
+	<bean id="person2" class="kr.co.iamtek.Person">
+		<constructor-arg value="주인님" />
+		<constructor-arg value="여성" />
+		<constructor-arg value="43세" />
+		<constructor-arg value="교수" />
+	</bean>
+	<bean id="person3" class="kr.co.iamtek.Person">
+		<constructor-arg value="김뀰" />
+		<constructor-arg value="여성" />
+		<constructor-arg value="5세" />
+		<constructor-arg value="공주" />
+	</bean>
+	<bean id="personInfo1" class="kr.co.iamtek.PersonInfo">
+		<constructor-arg>
+			<ref bean="person1"/>
+		</constructor-arg>
+	</bean>
+	<bean id="personInfo2" class="kr.co.iamtek.PersonInfo">
+		<constructor-arg ref="person2" />
+	</bean>
+	
+</beans>
