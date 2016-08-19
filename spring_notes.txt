@@ -60,7 +60,7 @@
 	DI advantages
 		one can change the behavior of an application using the bean config file with no java code change
 		
-6 : DI
+6 : DI, setting methods
 	XML (recommended)
 		0. bean config
 			String config1 = "classpath:beanContainerConfig1.xml";
@@ -90,5 +90,21 @@
 			<bean id="family" class="kr.co.iamtek.Familiy" c:papaName="홍아빠" c:mamaName="홍마마" p:brotherName="홍언니">
 				<property name="brotherName" value="홍오빠"/>
 			</bean>
-	JAVA
+	JAVA only
+		0. bean config
+			AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationCTX.class);
+		1. container class, ApplicationCTX.java
+			Create a class where method returns object, with annotation at class and methods
+			@Configuration
+			public class ApplicationCTX {
+				@Bean
+				public Student student1() {
+					return student;
+				}
+				@Bean
+				public Student student2() {
+					return student;
+				}
+			}
+		
 	XML + JAVA
