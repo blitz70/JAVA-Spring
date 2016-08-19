@@ -8,3 +8,5 @@ JAVA Spring framework study
 * DI (Dependency Injection)
 [3](https://www.youtube.com/watch?v=bZjUUJM_ZqA&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=66)
 [4](https://www.youtube.com/watch?v=Jwns7YqAg4I&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=67)
+[5](https://www.youtube.com/watch?v=wqHBAmIZcvg&index=68&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+[6](https://www.youtube.com/watch?v=MabPKw0HapE&index=69&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
