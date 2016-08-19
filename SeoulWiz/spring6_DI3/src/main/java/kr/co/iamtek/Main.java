@@ -1,13 +1,14 @@
 package kr.co.iamtek;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationCTX.class);
+		String config = "classpath:applicationCTX.xml";
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext(config);
 		
 		Student student1 = ctx.getBean("student1", Student.class);
 		System.out.println("이름 : " + student1.getName());

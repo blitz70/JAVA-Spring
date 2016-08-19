@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<context:annotation-config />
+<bean class="kr.co.iamtek.ApplicationCTX" />
+
+<bean id="student2" class="kr.co.iamtek.Student">
+	<constructor-arg value="홍길순" />
+	<constructor-arg value="30" />
+	<constructor-arg>
+		<list>
+			<value>마라톤</value>
+			<value>요리</value>
+		</list>
+	</constructor-arg>
+	<property name="height" value="190" />
+	<property name="weight" value="70" />
+</bean>
+
+</beans>
