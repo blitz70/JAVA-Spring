@@ -1,3 +1,5 @@
+[Seoul Wiz]
+
 1-2 : Concept
 	Description
 		When object A needs objects B & C -> A depends on B & C
@@ -124,3 +126,37 @@
 			AbstractApplicationContext ctx = new GenericXmlApplicationContext(config1);
 		3.2 Use, JAVA (+ XML), Main.class
 			AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationCTX.class);
+
+7. Life cycle & Scope
+	Spring container life cycle
+		Create
+			GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		Set
+			ctx.load("classpath:applicationCTX.xml");
+			ctx.refresh();
+		Use
+			Student student = ctx.getBean("student", Student.class);
+			...
+		Destroy
+			ctx.close();
+	Spring bean life cycle
+		Interface
+			Bean Class
+				InitializingBean
+				DisposableBean
+					@Override
+					public void destroy() throws Exception {
+						System.out.println("Interface DisposableBean destroy()");
+					}
+				
+					@Override
+					public void afterPropertiesSet() throws Exception {
+						System.out.println("Interface InitializingBean afterPropertiesSet()");
+					}
+		Annotation
+			applicationCTX.xml
+				<context:annotation-config />
+			Bean Class
+				@PostConstruct
+				@PreDestroy
+	Spring bean scope

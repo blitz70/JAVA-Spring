@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<context:annotation-config />
+
+<bean id="otherStudent" class="kr.co.iamtek.OtherStudent">
+	<constructor-arg value="홍길자" />
+	<constructor-arg value="50" />
+</bean>
+
+<bean id="student" class="kr.co.iamtek.Student">
+	<constructor-arg value="홍길순" />
+	<constructor-arg value="30" />
+</bean>
+
+</beans>
