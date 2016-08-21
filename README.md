@@ -10,3 +10,6 @@ JAVA Spring framework study
 [4](https://www.youtube.com/watch?v=Jwns7YqAg4I&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=67)
 [5](https://www.youtube.com/watch?v=wqHBAmIZcvg&index=68&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 [6](https://www.youtube.com/watch?v=MabPKw0HapE&index=69&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+* Lifecycle & Scope
+[7](https://www.youtube.com/watch?v=zKI4GWT5Xzs&index=70&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+

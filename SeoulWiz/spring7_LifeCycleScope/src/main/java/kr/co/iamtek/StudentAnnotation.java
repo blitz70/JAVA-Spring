@@ -3,12 +3,12 @@ package kr.co.iamtek;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-public class OtherStudent {
+public class StudentAnnotation {
 	
 	private String name;
 	private int age;
 	
-	public OtherStudent(String name, int age) {
+	public StudentAnnotation(String name, int age) {
 		super();
 		this.name = name;
 		this.age = age;

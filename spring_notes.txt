@@ -141,22 +141,10 @@
 			ctx.close();
 	Spring bean life cycle
 		Interface
-			Bean Class
-				InitializingBean
-				DisposableBean
-					@Override
-					public void destroy() throws Exception {
-						System.out.println("Interface DisposableBean destroy()");
-					}
-				
-					@Override
-					public void afterPropertiesSet() throws Exception {
-						System.out.println("Interface InitializingBean afterPropertiesSet()");
-					}
+			start : implement InitializingBean, override afterPropertiesSet()
+			end : implement DisposableBean, override destroy()
 		Annotation
-			applicationCTX.xml
-				<context:annotation-config />
-			Bean Class
-				@PostConstruct
-				@PreDestroy
+			applicationCTX.xml : <context:annotation-config />
+			start method : @PostConstruct
+			end method :  @PreDestroy
 	Spring bean scope

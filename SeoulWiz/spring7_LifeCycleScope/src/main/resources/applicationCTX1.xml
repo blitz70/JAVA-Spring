@@ -7,12 +7,12 @@
 
 <context:annotation-config />
 
-<bean id="otherStudent" class="kr.co.iamtek.OtherStudent">
+<bean id="student1" class="kr.co.iamtek.StudentAnnotation">
 	<constructor-arg value="홍길자" />
 	<constructor-arg value="50" />
 </bean>
 
-<bean id="student" class="kr.co.iamtek.Student">
+<bean id="student2" class="kr.co.iamtek.StudentInterface">
 	<constructor-arg value="홍길순" />
 	<constructor-arg value="30" />
 </bean>
