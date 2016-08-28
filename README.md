@@ -12,4 +12,7 @@ JAVA Spring framework study
 [6](https://www.youtube.com/watch?v=MabPKw0HapE&index=69&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 * Lifecycle & Scope
 [7](https://www.youtube.com/watch?v=zKI4GWT5Xzs&index=70&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+* Importing Settings
+[8](https://www.youtube.com/watch?v=9cDHggH0ENA&index=71&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+
 

@@ -1,6 +1,6 @@
 [Seoul Wiz]
 
-1-2 : Concept
+1-2. Concept
 	Description
 		When object A needs objects B & C -> A depends on B & C
 			1 : A directly creates B & C
@@ -11,7 +11,7 @@
 	Spring : DI + IOC
 		group of libraries that create and assemble logic parts
 		
-3-4 : DI, Spring setting & setter method
+3-4. DI, Spring setting & setter method
 	Class : create required classes, must have setters for fields
 		private Calculator calculator;
 		private int firstNum;
@@ -39,7 +39,7 @@
 		ctx : IOC container
 		getBean : get the required bean(class instance) for use
 
-5 : DI
+5. DI
 	constructor method
 		Class : create required classes, must have constructor with fields
 			private String name;private String gender;private String age;private String job;
@@ -62,7 +62,7 @@
 	DI advantages
 		one can change the behavior of an application using the bean config file with no java code change
 		
-6 : DI, setting methods
+6. DI, setting methods
 	XML (recommended)
 		1. Class
 		2.1 Bean : property+constructor method, applicationCTX.xml
@@ -148,3 +148,34 @@
 			start method : @PostConstruct
 			end method :  @PreDestroy
 	Spring bean scope
+	
+8. Importing bean settings
+	Environment Object : import settings from environment
+		Objects
+			ctx1 = new GenericXmlApplicationContext();
+			env = ctx1.getEnvironment();
+			psrc= env.getPropertySources();
+		Set, adding to environment
+			psrc.addLast()
+		Get, getting from environment
+			env.getProperty()
+	Property file : import settings directly from file
+		Setting files : add to resources
+		XML : applicationCTX.xml
+			Namespaces : add context 
+				<context:property-placeholder location="classpath:admin.properties, classpath:subadmin.properties"/>
+			Property : import property values from setting files
+				<bean id="adminConnection" class="kr.co.iamtek.AdminConnection">
+					<property name="adminId" value="${admin.id}" />
+				</bean>
+		JAVA : applicationCTX.java
+			1. Get location of setting files
+				@Bean
+				public static PropertySourcesPlaceholderConfigurer propertySources() {	};
+			2. Import setting
+				@Value("${admin.id}")
+				private String adminId;
+			3. Set Bean
+				@Bean
+				public AdminConnection adminConnection() {};
+	Profile
