@@ -179,10 +179,20 @@
 				@Bean
 				public AdminConnection adminConnection() {};
 	Profile : import settings by selecting one from multiple bean config files
-			1. Spring config files
+		XML
+			1. Spring config files : ApplicationCTXDev.xml, ApplicationCTXRun.xml
 				add profile to <beans> : <beans profile="dev.">
 			2. Main class
-				Profile value : config = "dev" or "run" 
+				Profile value : config = "dev" or "run"
+				GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
 				ctx.getEnvironment().setActiveProfiles(config);   <- before loading container setting
-				ctx.load("classpath:devCTX.xml", "classpath:runCTX.xml");
-	
+				ctx.load("classpath:ApplicationCTXDev.xml", "classpath:ApplicationCTXRun.xml");
+		JAVA
+			1. Annotated config classes : ApplicationCTXDev.java, ApplicationCTXRun.java
+				add profile annotation to class : @Profile("dev")
+			2. Main class
+				Profile value : config = "dev" or "run"
+				AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+				ctx.getEnvironment().setActiveProfiles(config);
+				ctx.register(ApplicationCTXDev.class, ApplicationCTXRun.class);
+				

@@ -6,7 +6,7 @@
 
 <bean id="serverInfo" class="kr.co.iamtek.ServerInfo">
 	<property name="ipNum" value="123.140.187.157" />
-	<property name="portNum" value="8080" />
+	<property name="portNum" value="80" />
 </bean>
 
 </beans>
