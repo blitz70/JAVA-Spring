@@ -196,3 +196,43 @@
 				ctx.getEnvironment().setActiveProfiles(config);
 				ctx.register(ApplicationCTXDev.class, ApplicationCTXRun.class);
 				
+9. AOP, Aspect Oriented Programming
+	Concept : Divide code into core and common process, apply common process at core process as needed
+	Description
+		1. Common
+			Aspect : Grouped set of common processes
+			Advice : each common process in an Aspect
+		2. Core
+			Joinpoint : core process where Advices(common processes) are inserted/applied (Spring : methods only)
+			Pointcut : exact point of Jointpoint(core process) where an Advice is applied
+			Weaving : application itself
+		3. Spring framework
+			Joinpoint can only be methods, uses proxy method
+	Method
+		1. XML Schema
+			POM.XML : Set dependencies (Error!)
+				<dependency>
+					<groupId>org.aspectj</groupId>
+					<artifactId>apectjweaver</artifactId>
+					<version>1.7.4</version>
+				</dependency>
+				Error ! : didn't work, so downloaded jar and added to project
+			Advice class : class for common process
+			Spring config file XML : Aspect settings
+				Namespaces : add aop
+				<aop:config>
+					<aop:aspect id="logger" ref="logAop">
+						<aop:pointcut expression="within(kr.co.iamtek.*)" id="publicM"/>
+						<aop:around pointcut-ref="publicM" method="loggerAop"/>
+					</aop:aspect>
+				</aop:config>
+				Advice types : <aop:around>
+					<aop:before> : runs advice before method
+					<aop:after-returning> : after method only without exception
+					<aop:after-throwing> : after method only with exception
+					<aop:after> : after method regardless of exception
+					<aop:around> : runs advice before and after method regardless of exception
+		2. Annotation
+			
+				
+				
