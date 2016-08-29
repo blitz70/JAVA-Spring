@@ -14,5 +14,6 @@ JAVA Spring framework study
 [7](https://www.youtube.com/watch?v=zKI4GWT5Xzs&index=70&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 * Importing Settings
 [8](https://www.youtube.com/watch?v=9cDHggH0ENA&index=71&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
-
+* AOP (Aspect oriented programming)
+[9](https://www.youtube.com/watch?v=2F8K9BLgvjE&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=72)
 

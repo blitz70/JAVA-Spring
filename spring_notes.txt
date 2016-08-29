@@ -216,7 +216,6 @@
 					<artifactId>apectjweaver</artifactId>
 					<version>1.7.4</version>
 				</dependency>
-				Error ! : didn't work, so downloaded jar and added to project
 			Advice class : class for common process
 			Spring config file XML : Aspect settings
 				Namespaces : add aop
