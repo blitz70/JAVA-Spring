@@ -178,4 +178,11 @@
 			3. Set Bean
 				@Bean
 				public AdminConnection adminConnection() {};
-	Profile
+	Profile : import settings by selecting one from multiple bean config files
+			1. Spring config files
+				add profile to <beans> : <beans profile="dev.">
+			2. Main class
+				Profile value : config = "dev" or "run" 
+				ctx.getEnvironment().setActiveProfiles(config);   <- before loading container setting
+				ctx.load("classpath:devCTX.xml", "classpath:runCTX.xml");
+	

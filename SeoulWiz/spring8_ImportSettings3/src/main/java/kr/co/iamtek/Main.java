@@ -9,6 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		String config = null;
+		System.out.println("Environment is (dev/run)?");
 		Scanner scan = new Scanner(System.in);
 		if (scan.hasNext()) config = scan.next();
 		scan.close();
