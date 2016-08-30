@@ -198,40 +198,100 @@
 				
 9. AOP, Aspect Oriented Programming
 	Concept : Divide code into core and common process, apply common process at core process as needed
-	Description
-		1. Common
+		Common
 			Aspect : Grouped set of common processes
 			Advice : each common process in an Aspect
-		2. Core
+		Core
 			Joinpoint : core process where Advices(common processes) are inserted/applied (Spring : methods only)
 			Pointcut : exact point of Jointpoint(core process) where an Advice is applied
-			Weaving : application itself
-		3. Spring framework
+		Weaving : application itself
+	Description
+		Spring framework
 			Joinpoint can only be methods, uses proxy method
-	Method
+			Application
+				1. POM.XML : Set dependencies
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>1.7.4</version>
+					</dependency>
+				2. XML Schema, Annotation
+		Advice types : <aop:around>, @Around
+			Before : runs advice before method
+			AfterReturning : after method only without exception
+			AfterThrowing : after method only with exception
+			After : after method regardless of exception
+			Around : runs advice before and after method regardless of exception
+		AspectJ Poincut Expression Language
+			all : *		this : .		0+ : ..
+			Scope
+				execution : apply to methods, "execution(public void get*(..))"
+				within : apply to package.class methods, "within(kr.co.iamtek.*)"
+				bean : apply to bean methods, "bean(student)"
+			Ex
+				<aop:pointcut expression="within(kr.co.iamtek.*)" id="publicM"/>
+				@Pointcut("within(kr.co.iamtek.*)")
+			General
+	Apply methods
 		1. XML Schema
-			POM.XML : Set dependencies (Error!)
-				<dependency>
-					<groupId>org.aspectj</groupId>
-					<artifactId>apectjweaver</artifactId>
-					<version>1.7.4</version>
-				</dependency>
 			Advice class : class for common process
+				public class LogAop {
+					public Object loggerAop(ProceedingJoinPoint joinPoint) throws Throwable {
+						//before Pointcut
+						String signitureStr = joinPoint.getSignature().toShortString();
+						System.out.println(signitureStr + " started.");
+						long st = System.currentTimeMillis();
+						try {
+							Object obj = joinPoint.proceed();
+							return obj;
+						} finally {
+							//after Pointcut
+							long et = System.currentTimeMillis();
+							System.out.println(signitureStr + " ended, duration : "+ (et - st));
+						}
+					}
+					public void beforeAdvice(JoinPoint joinPoint) {
+						String signitureStr = joinPoint.getSignature().toShortString();
+						System.out.println(signitureStr + " beforeAdvice()");
+					}
+				}
 			Spring config file XML : Aspect settings
 				Namespaces : add aop
+				<bean id="logAop" class="kr.co.iamtek.LogAop" />
 				<aop:config>
 					<aop:aspect id="logger" ref="logAop">
 						<aop:pointcut expression="within(kr.co.iamtek.*)" id="publicM"/>
 						<aop:around pointcut-ref="publicM" method="loggerAop"/>
 					</aop:aspect>
+					<aop:aspect id="logger" ref="logAop">
+						<aop:pointcut id="publicM" expression="within(kr.co.iamtek.*)"  />
+						<aop:before pointcut-ref="publicM" method="beforeAdvice" />
+					</aop:aspect>
 				</aop:config>
-				Advice types : <aop:around>
-					<aop:before> : runs advice before method
-					<aop:after-returning> : after method only without exception
-					<aop:after-throwing> : after method only with exception
-					<aop:after> : after method regardless of exception
-					<aop:around> : runs advice before and after method regardless of exception
-		2. Annotation
-			
-				
-				
+		2. Annotation @Aspect
+			Advice class with AOP annotation
+				@Aspect
+				public class LogAop {
+					@Pointcut("within(kr.co.iamtek.*)")
+					private void pointcutMethod() {
+					}
+					@Around("pointcutMethod()")		//using with @Pointcut
+					public Object loggerAop(ProceedingJoinPoint joinPoint) throws Throwable {
+						//before Pointcut
+						try {
+							Object obj = joinPoint.proceed();
+							return obj;
+						} finally {
+							//after Pointcut
+						}
+					}
+					@Before("within(kr.co.iamtek.*)")	//without @Pointcut
+					public void beforeAdvice(JoinPoint joinPoint) {
+						String signitureStr = joinPoint.getSignature().toShortString();
+						System.out.println(signitureStr + " beforeAdvice()");
+					}
+				}
+			Spring config file XML
+				Namespaces : add aop
+				<bean id="logAop" class="kr.co.iamtek.LogAop" />
+				<aop:aspectj-autoproxy />

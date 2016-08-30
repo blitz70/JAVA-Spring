@@ -12,6 +12,22 @@
 			<aop:pointcut expression="within(kr.co.iamtek.*)" id="publicM"/>
 			<aop:around pointcut-ref="publicM" method="loggerAop"/>
 		</aop:aspect>
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(kr.co.iamtek.*)"  />
+			<aop:before pointcut-ref="publicM" method="beforeAdvice" />
+		</aop:aspect>
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(kr.co.iamtek.*)"  />
+			<aop:after-returning pointcut-ref="publicM" method="afterReturningAdvice" />
+		</aop:aspect>
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(kr.co.iamtek.*)"  />
+			<aop:after-throwing pointcut-ref="publicM" method="afterThrowingAdvice" />
+		</aop:aspect>
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(kr.co.iamtek.*)"  />
+			<aop:after pointcut-ref="publicM" method="afterAdvice" />
+		</aop:aspect>
 	</aop:config>
 
 	<bean id="student" class="kr.co.iamtek.Student">

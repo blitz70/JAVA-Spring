@@ -1,7 +1,7 @@
 # JAVA-Spring
 JAVA Spring framework study
 <hr/>
-##1. [(Seoul Wiz)](https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9 "Seoul Wiz") video 64-93, Korean
+##1. [(Seoul Wiz)](http://www.wiz.center/category/software_development/SPRING "Seoul Wiz") [video 64-93](https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9), Korean
 * Introduction & Setup
 [1](https://www.youtube.com/watch?v=CsOrR-4nH-s&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=64)
 [2](https://www.youtube.com/watch?v=xuygR0rucms&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=65)
@@ -16,4 +16,5 @@ JAVA Spring framework study
 [8](https://www.youtube.com/watch?v=9cDHggH0ENA&index=71&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 * AOP (Aspect oriented programming)
 [9](https://www.youtube.com/watch?v=2F8K9BLgvjE&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=72)
+[10](https://www.youtube.com/watch?v=x4qWZpDN444&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=73)
 
