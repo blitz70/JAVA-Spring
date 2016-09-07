@@ -15,8 +15,9 @@ Eclipse (www.eclipse.org)
 	3. Spring Tool Suite
 		download & install STS from eclipse marketplace (check version)
 	4. project
-		Spring Legacy Project
-		Simple Spring Maven
+		Spring Legacy Project -> Simple Spring Maven
+	5. MVC project
+		Spring Legacy Project -> Spring MVC Project -> Package(p1.p2.p3 : p3 = context)
 
 Spring project
 	src/main/java : class files (.java)

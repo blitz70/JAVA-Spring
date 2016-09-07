@@ -12,9 +12,12 @@ JAVA Spring framework study
 [6](https://www.youtube.com/watch?v=MabPKw0HapE&index=69&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 * Lifecycle & Scope
 [7](https://www.youtube.com/watch?v=zKI4GWT5Xzs&index=70&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
-* Importing Settings
+* Import Settings
 [8](https://www.youtube.com/watch?v=9cDHggH0ENA&index=71&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 * AOP (Aspect oriented programming)
 [9](https://www.youtube.com/watch?v=2F8K9BLgvjE&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=72)
 [10](https://www.youtube.com/watch?v=x4qWZpDN444&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=73)
+* MVC
+[11](https://www.youtube.com/watch?v=6P9C3myUsrw&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=74)
+
 

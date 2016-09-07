@@ -295,3 +295,28 @@
 				Namespaces : add aop
 				<bean id="logAop" class="kr.co.iamtek.LogAop" />
 				<aop:aspectj-autoproxy />
+
+11. Spring MVC basics
+	Overview
+		1. DispatcherServlet(auto) -> Controller
+		2. Controller <-> Model/ModelandView
+		3. Controller -> View
+	Structure
+		root : src/main/webapp
+		context : Package(p1.p2.p3.p4...)  p3 = context
+		web.xml : src/main/webapp/WEB-INF/web.xml
+			servlet setting & mapping, DispatcherServlet
+			spring container setting file path
+		servlet-context.xml : src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml
+			spring container setting
+			view file path
+			resource folder path
+			controller scan package
+		DispatcherServlet
+			gets client connection & pass it to controller
+		controller : /src/main/java/package
+		view : src/main/webapp/WEB-INF/views
+	Resource folder
+		path : src/main/webapp/resources
+		new folder need to be registered in servlet-context.xml
+			
