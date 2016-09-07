@@ -196,7 +196,7 @@
 				ctx.getEnvironment().setActiveProfiles(config);
 				ctx.register(ApplicationCTXDev.class, ApplicationCTXRun.class);
 				
-9. AOP, Aspect Oriented Programming
+9-10. AOP, Aspect Oriented Programming
 	Concept : Divide code into core and common process, apply common process at core process as needed
 		Common
 			Aspect : Grouped set of common processes
