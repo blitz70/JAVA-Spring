@@ -316,7 +316,50 @@
 			gets client connection & pass it to controller
 		controller : /src/main/java/package
 		view : src/main/webapp/WEB-INF/views
+			prefix(/WEB-INF/views) + return(view name) + suffix(.jsp)
 	Resource folder
 		path : src/main/webapp/resources
 		new folder need to be registered in servlet-context.xml
 			
+12. Controller
+	Controller class
+		@Controller annotation : designate class as controller
+		@RequestMapping : map request path to request method
+			map path vs view name : starting with "/" not important
+		Implement request methods
+		Return view name
+		Ex
+			@Controller
+			public class MyController {
+				@RequestMapping("board/view")
+				public String view() {
+					...code...
+					return "board/view";
+				}
+			}
+	View data transfer
+		get Model(ModelAndView) object -> add data as attribute -> 	use attribute in jsp
+		Model
+			@RequestMapping("board/content")
+			public String content(Model model) {
+				model.addAttribute("id", 30);
+				return "board/content";
+			}
+		ModelAndView
+			@RequestMapping("board/reply")
+			public ModelAndView reply() {
+				ModelAndView mv = new ModelAndView();
+				mv.addObject("id", 30);
+				mv.setViewName("board/reply");
+				return mv;
+			}
+	Class @RequestMapping : path is added to method's path
+		@Controller
+		@RequestMapping("test")
+		class MyController2 {
+			@RequestMapping("/view")
+			public String view() {
+				return "/test/view";
+			}
+		}
+		
