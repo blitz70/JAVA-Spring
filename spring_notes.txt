@@ -363,3 +363,31 @@
 			}
 		}
 		
+13. Form data, getting data from client
+	1. HttpServletRequest class
+		@RequestMapping("board/confirm1")
+		public String confirm1(HttpServletRequest request, Model model) {
+			String id = request.getParameter("form_id");
+			...
+			model.addAttribute(...);
+			return "board/confirm";
+		}
+	2. @Request annotation
+		@RequestMapping("board/confirm2")
+		public String confirm2(@RequestParam("form_id") String id, ..., Model model) {
+			model.addAttribute(...);
+			return "board/confirm";
+		}
+	3. Data(Command) object, recommended
+		Need names in form, data object and view to be same
+		@RequestMapping("board/join2")
+		public String join2(Member member) {
+			return "board/join2";
+		}
+	@PathVariable
+		@RequestMapping("student/{studentId}")
+		public String getStudent(@PathVariable String studentId, Model model) {
+			model.addAttribute("studentId", studentId);
+			return "student";
+		}
+	

@@ -20,6 +20,7 @@ JAVA Spring framework study
 * MVC
 [11](https://www.youtube.com/watch?v=6P9C3myUsrw&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=74)
 [12](https://www.youtube.com/watch?v=MDFEmeuTuv4&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=75)
+[13](https://www.youtube.com/watch?v=g4pTP69HrNw&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=76)
 
 
 
