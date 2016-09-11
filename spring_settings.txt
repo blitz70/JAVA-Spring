@@ -23,20 +23,23 @@ Spring project
 	src/main/java : class files (.java)
 	src/main/resources : spring bean configuration file (applicationCTX.xml)
 	JRE error : set jre system library to workspace default jre
-	Localization(Korean), web.xml
-		<filter>
-			<filter-name>encodingFilter</filter-name>
-			<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-			<init-param>
-				<param-name>encoding</param-name>
-				<param-value>UTF-8</param-value>
-			</init-param>
-			<init-param>
-				<param-name>forceEncoding</param-name>
-				<param-value>true</param-value>
-			</init-param>
-		</filter>
-		<filter-mapping>
-			<filter-name>encodingFilter</filter-name>
-			<url-pattern>/*</url-pattern>
-		</filter-mapping>
+	Localization(Korean)
+		...jsp
+			"EUC-KR" -> "UTF-8"
+		web.xml
+			<filter>
+				<filter-name>encodingFilter</filter-name>
+				<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+				<init-param>
+					<param-name>encoding</param-name>
+					<param-value>UTF-8</param-value>
+				</init-param>
+				<init-param>
+					<param-name>forceEncoding</param-name>
+					<param-value>true</param-value>
+				</init-param>
+			</filter>
+			<filter-mapping>
+				<filter-name>encodingFilter</filter-name>
+				<url-pattern>/*</url-pattern>
+			</filter-mapping>

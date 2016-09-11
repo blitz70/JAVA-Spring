@@ -321,7 +321,7 @@
 		path : src/main/webapp/resources
 		new folder need to be registered in servlet-context.xml
 			
-12. Controller
+12. MVC Controller
 	Controller class
 		@Controller annotation : designate class as controller
 		@RequestMapping : map request path to request method
@@ -363,7 +363,7 @@
 			}
 		}
 		
-13. Form data, getting data from client
+13. MVC Form data, getting data from client
 	1. HttpServletRequest class
 		@RequestMapping("board/confirm1")
 		public String confirm1(HttpServletRequest request, Model model) {
@@ -389,5 +389,24 @@
 		public String getStudent(@PathVariable String studentId, Model model) {
 			model.addAttribute("studentId", studentId);
 			return "student";
+		}
+	
+14. MVC @RequestMapping parameters
+	Get vs Post : choose which form method to process
+		@RequestMapping(method = RequestMethod.GET, value = "student1")
+	@ModelAttribute : rename data object
+		public String studentView(@ModelAttribute("studentInfo") StudentInformation studentInfo1) {}
+	redirect : passes a RequestMapping to another
+		@RequestMapping("confirmChk")
+		public String confirmChk(HttpServletRequest request, Model model) {
+			String id = request.getParameter("id");
+			if (id.equals("abc")) {
+				return "redirect:studentPass";	//goes to another RequestMapping
+			}
+			return "redirect:studentFail";
+		}
+		@RequestMapping("redirectURL1")
+		public String redirectURL1() {
+			return "redirect:http://localhost:8080/myproject/redirectURL1.jsp";	//goes to actual file
 		}
 	
