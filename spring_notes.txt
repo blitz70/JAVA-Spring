@@ -410,3 +410,56 @@
 			return "redirect:http://localhost:8080/myproject/redirectURL1.jsp";	//goes to actual file
 		}
 	
+15. MVC Validation
+	Concept : method of checking form data at server side, instead of client side method using javascript
+		1. Controller : 	implement method with appropriate arguments (data object, check result)
+			public String studentCreate1(Student student, BindingResult result) {
+				String view = "student/studentCreatePass";
+				StudentValidator validator = new StudentValidator();
+				validator.validate(student, result);
+				if (result.hasErrors()) {
+					view = "student/studentForm";
+				}
+				return view;
+			}
+		2. Validator class : implement Validator interface (check target, check logic)
+			public class StudentValidator implements Validator {
+				@Override
+				public boolean supports(Class<?> clazz) {
+					return Student.class.isAssignableFrom(clazz);
+				}
+				@Override
+				public void validate(Object target, Errors errors) {
+					Student student = (Student) target;
+					if (student.getId() == 0) {
+						errors.rejectValue("id", "error");
+					}
+				}
+			}
+	ValidationUtils class : premade checking, not flexible
+		public void validate(Object target, Errors errors) {
+			...
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "error");
+		}
+	Spring framework validation : framework uses validation automatically
+		1. add dependency, pom.xml
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>4.2.0.Final</version>
+			</dependency>
+		2. register validation class, @InitBinder
+			@InitBinder
+			protected void iniBinder(WebDataBinder binder) {
+				binder.setValidator(new StudentValidator());
+			}
+		3. mark class to check, @Valid
+			@RequestMapping("studentCreate2")	//framework validation
+			public String studentCreate2(@Valid Student student, BindingResult result) {
+				String view = "student/studentCreatePass";
+				if (result.hasErrors()) {
+					view = "student/studentForm";
+				}
+				return view;
+			}
+		
