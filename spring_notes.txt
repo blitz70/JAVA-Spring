@@ -411,7 +411,10 @@
 		}
 	
 15. MVC Validation
-	Concept : method of checking form data at server side, instead of client side method using javascript
+	Concept
+		Method of checking form data at server side, instead of client side using javascript
+		Manual method is most flexible compared to ValidationUtils or Spring framework validation
+	Manual validation
 		1. Controller : 	implement method with appropriate arguments (data object, check result)
 			public String studentCreate1(Student student, BindingResult result) {
 				String view = "student/studentCreatePass";
@@ -441,7 +444,9 @@
 			...
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "error");
 		}
-	Spring framework validation : framework uses validation automatically
+	Spring framework validation
+		Framework uses validation automatically
+		can mix with manual validation by separating controllers
 		1. add dependency, pom.xml
 			<dependency>
 				<groupId>org.hibernate</groupId>

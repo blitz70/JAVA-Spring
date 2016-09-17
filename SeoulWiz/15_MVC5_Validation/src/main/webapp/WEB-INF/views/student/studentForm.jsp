@@ -11,15 +11,15 @@
 	<h1>studentForm.jsp</h1>
 	<form action="studentCreate1">
 		Validator interface<br>
-		이름 <input type="text" name="name" value="${student.name}">${error.field1}<br>
-		아이디 <input type="text" name="id" value="${student.id}">${error.field2}<br>
+		이름 <input type="text" name="name" value="${student.name}"> ${errors.field1}<br>
+		아이디 <input type="text" name="id" value="${student.id}"> ${errors.field2}<br>
 		<input type="submit" value="전송"><br>
 	</form>
 	<hr>
 	<form action="studentCreate2">
 		Spring framework<br>
-		이름 <input type="text" name="name" value="${student.name}">${error.field1}<br>
-		아이디 <input type="text" name="id" value="${student.id}">${error.field2}<br>
+		이름 <input type="text" name="name" value="${student.name}"> ${errors.field1}<br>
+		아이디 <input type="text" name="id" value="${student.id}"> ${errors.field2}<br>
 		<input type="submit" value="전송"><br>
 	</form>
 
