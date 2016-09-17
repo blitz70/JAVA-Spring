@@ -467,4 +467,9 @@
 				}
 				return view;
 			}
-		
+
+16. MVC Project, BBS
+	Localization : web.xml
+	Package, interface, class
+	Controller
+	List page

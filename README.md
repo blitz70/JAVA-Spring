@@ -17,12 +17,14 @@ JAVA Spring framework study
 * AOP (Aspect oriented programming)
 [9](https://www.youtube.com/watch?v=2F8K9BLgvjE&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=72)
 [10](https://www.youtube.com/watch?v=x4qWZpDN444&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=73)
-* MVC
+* MVC1
 [11](https://www.youtube.com/watch?v=6P9C3myUsrw&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=74)
 [12](https://www.youtube.com/watch?v=MDFEmeuTuv4&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=75)
 [13](https://www.youtube.com/watch?v=g4pTP69HrNw&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=76)
 [14](https://www.youtube.com/watch?v=dlqoM31YPJ8&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=77)
 [15](https://www.youtube.com/watch?v=h0yhYSjA9JI&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=78)
+* MVC2 BBS
+[16](https://www.youtube.com/watch?v=RYqlq1F9Jb8&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=79)
 
 
 

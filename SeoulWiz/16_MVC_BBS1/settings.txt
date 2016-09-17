@@ -1,0 +1,32 @@
+CREATE SCHEMA `mydb` DEFAULT CHARACTER SET utf8 ;
+		
+CREATE TABLE `mydb`.`mvc_board` (
+  `bId` INT NOT NULL AUTO_INCREMENT,
+  `bName` VARCHAR(20) NULL,
+  `bTitle` VARCHAR(100) NULL,
+  `bContent` VARCHAR(300) NULL,
+  `bDate` TIMESTAMP NULL,
+  `bHit` INT NULL,
+  `bGroup` INT NULL,
+  `bStep` INT NULL,
+  `bIndent` INT NULL,
+  PRIMARY KEY (`bId`));
+  
+  INSERT INTO `mydb`.`mvc_board`
+(`bName`,
+`bTitle`,
+`bContent`,
+`bDate`,
+`bHit`,
+`bGroup`,
+`bStep`,
+`bIndent`)
+VALUES
+('blitz1',
+'Title1',
+'Content1',
+now(),
+10,
+0,
+0,
+0);
