@@ -11,7 +11,21 @@ CREATE TABLE `mydb`.`mvc_board` (
   `bStep` INT NULL,
   `bIndent` INT NULL,
   PRIMARY KEY (`bId`));
-  
+
+Database
+	1. JDBC (Maven dependency, pom.xml)
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.39</version>
+		</dependency>
+	2. DBCP (tomcat, context.xml)
+		<Resource
+			auth="Container" type="javax.sql.DataSource" maxActive="50" maxWait="1000"
+			name="jdbc/MySQL" driverClassName = "com.mysql.jdbc.Driver" 	url="jdbc:mysql://localhost:3306/mydb"
+			username="blitz" password="mysql"
+		/>
+
   INSERT INTO `mydb`.`mvc_board`
 (`bName`,
 `bTitle`,
