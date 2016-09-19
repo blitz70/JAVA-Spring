@@ -11,15 +11,21 @@
 	<form action="write" method="post">
 		<table width="500" cellpadding="0" cellspacing="0" border="1">
 			<tr >
-				<td>이름</td><td><input type="text" name="bName" size="50"></td>
+				<td>이름</td><td><input type="text" name="bName" size="65"></td>
 			</tr>
 			<tr>
-				<td>제목</td><td><input type="text" name="bTitle" size="50"></td>
+				<td>제목</td><td><input type="text" name="bTitle" size="65"></td>
 			</tr>
 			<tr>
 				<td>내용</td><td><textarea rows="10" cols="50" name="bContent"></textarea></td>
 			</tr>
-			<tr><td colspan="2"><input type="submit" value="입력"></td></tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="입력"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><a href="list">목록</a></td>
+			</tr>
+			
 		</table>
 	</form>
 

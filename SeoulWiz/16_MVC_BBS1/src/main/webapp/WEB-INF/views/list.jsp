@@ -16,6 +16,11 @@
 			<td>제목</td>
 			<td>날짜</td>
 			<td>히트</td>
+<%-- 		
+			<td>bGroup</td>
+			<td>bStep</td>
+			<td>bIndent</td>
+ --%>
 		</tr>
 		<c:forEach items="${list}" var="dto">
 			<tr>
@@ -23,15 +28,20 @@
 				<td>${dto.bName}</td>
 				<td>
 					<c:forEach begin="1" end="${dto.bIndent}">-</c:forEach>
-					<a href="content_view?bid=${dto.bId}">${dto.bTitle}</a>
+					<a href="content_view?bId=${dto.bId}">${dto.bTitle}</a>
 				</td>
 				<td>${dto.bDate}</td>
 				<td>${dto.bHit}</td>
-			</tr>
+<%-- 		
+				<td>${dto.bGroup}</td>
+				<td>${dto.bStep}</td>
+				<td>${dto.bIndent}</td>
+ --%>
+ 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="5">
-				<a href="write_view">글작성</a>
+			<td colspan="5" align="center">
+				<a href="write_view">글 작성</a>
 			</td>
 		</tr>
 	</table>
