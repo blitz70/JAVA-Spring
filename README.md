@@ -27,6 +27,7 @@ JAVA Spring framework study
 [16](https://www.youtube.com/watch?v=RYqlq1F9Jb8&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=79)
 [17](https://www.youtube.com/watch?v=6fjShNxd8_c&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=80)
 [18](https://www.youtube.com/watch?v=HTFmBE9kZKs&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=81)
+[19](https://www.youtube.com/watch?v=7uaw6_j3cos&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=82)
 
 
 

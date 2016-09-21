@@ -62,6 +62,15 @@ public class BController {
 		return "redirect:list";
 	}
 
+	@RequestMapping("delete")	//delete post, go to list
+	public String delete(HttpServletRequest request, Model model) {
+		System.out.println("delete()");
+		model.addAttribute("request", request);
+		command = new BDeleteCommand();
+		command.execute(model);
+		return "redirect:list";
+	}
+
 	@RequestMapping("reply_view")		//goto reply
 	public String reply_view(HttpServletRequest request, Model model) {
 		System.out.println("reply_view()");
@@ -76,15 +85,6 @@ public class BController {
 		System.out.println("reply()");
 		model.addAttribute("request", request);
 		command = new BReplyCommand();
-		command.execute(model);
-		return "redirect:list";
-	}
-
-	@RequestMapping("delete")
-	public String delete(HttpServletRequest request, Model model) {
-		System.out.println("delete()");
-		model.addAttribute("request", request);
-		command = new BDeleteCommand();
 		command.execute(model);
 		return "redirect:list";
 	}

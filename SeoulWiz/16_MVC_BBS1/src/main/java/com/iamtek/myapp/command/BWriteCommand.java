@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 
 import com.iamtek.myapp.dao.BDao;
 
-//
 public class BWriteCommand implements BCommand {
 
 	@Override

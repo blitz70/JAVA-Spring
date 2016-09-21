@@ -468,22 +468,9 @@
 				return view;
 			}
 
-16-18. MVC Project, BBS
+16-19. MVC Project, BBS
 	16. DB1(setup), Localization(web.xml)
 	17. Package, Controller, Command interface & class
-	18. List page, Write page, Content page
-		DB2(DBCP), JSTL
-		Database
-			1. JDBC (Maven dependency, pom.xml)
-				<dependency>
-					<groupId>mysql</groupId>
-					<artifactId>mysql-connector-java</artifactId>
-					<version>5.1.39</version>
-				</dependency>
-			2. DBCP (tomcat, context.xml)
-				<Resource
-					auth="Container" type="javax.sql.DataSource" maxActive="50" maxWait="1000"
-					name="jdbc/MySQL" driverClassName = "com.mysql.jdbc.Driver" 	url="jdbc:mysql://localhost:3306/mydb"
-					username="blitz" password="mysql"
-				/>
+	18. List, Write, Content, DB2(JDBC, DBCP), JSTL
+	19. Modify, Delete 
 	

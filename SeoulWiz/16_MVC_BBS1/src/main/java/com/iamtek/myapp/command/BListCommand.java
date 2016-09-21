@@ -4,7 +4,6 @@ import org.springframework.ui.Model;
 
 import com.iamtek.myapp.dao.BDao;
 
-//get list of post titles
 public class BListCommand implements BCommand {
 
 	@Override

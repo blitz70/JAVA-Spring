@@ -29,6 +29,17 @@ public class BDao {
 			e.printStackTrace();
 		}
 	}
+
+	public void dbClose() {
+		try {
+			if (resultSet != null) resultSet.close();
+			if (preparedStatement != null) preparedStatement.close();
+			if (connection != null) connection.close();
+		} catch (Exception e) {
+			System.out.println("dbClose()");
+			e.printStackTrace();
+		}
+	}
 	
 	public ArrayList<BDto> list() {
 		ArrayList<BDto> dtos = new ArrayList<BDto>();
@@ -59,7 +70,8 @@ public class BDao {
 		return dtos;
 	}
 
-	public void write(String bName, String bTitle, String bContent) {
+	public int write(String bName, String bTitle, String bContent) {
+		int result = 0;
 		try {
 			connection = dataSource.getConnection();
 			sql = "INSERT INTO mvc_board("+
@@ -68,7 +80,7 @@ public class BDao {
 			preparedStatement.setString(1, bName);
 			preparedStatement.setString(2, bTitle);
 			preparedStatement.setString(3, bContent);
-			preparedStatement.executeUpdate();
+			result = preparedStatement.executeUpdate();
 			sql = "UPDATE mvc_board SET bGroup = bId WHERE bGroup=0";		//set bGroup == bId
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.executeUpdate();
@@ -78,21 +90,22 @@ public class BDao {
 		} finally {
 			dbClose();
 		}
+		return result;
 	}
 
-	public BDto content(int bId) {
+	public BDto content(String bId) {
 		BDto dto = null;
 		try {
 			connection = dataSource.getConnection();
 			//bHit++
 			sql = "UPDATE mvc_board SET bHit = bHit+1 WHERE bId=?";
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, bId);
+			preparedStatement.setInt(1, Integer.parseInt(bId));
 			preparedStatement.executeUpdate();
 			//get content
 			sql = "SELECT * FROM mvc_board WHERE bId=?";
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, bId);
+			preparedStatement.setInt(1, Integer.parseInt(bId));
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				String bName = resultSet.getString("bName");
@@ -103,10 +116,10 @@ public class BDao {
 				int bGroup = resultSet.getInt("bGroup");
 				int bStep = resultSet.getInt("bStep");
 				int bIndent = resultSet.getInt("bIndent");
-				dto = new BDto(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
+				dto = new BDto(Integer.parseInt(bId), bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
 			}
 		} catch (Exception e) {
-			System.out.println("BDao.list()");
+			System.out.println("BDao.content()");
 			e.printStackTrace();
 		} finally {
 			dbClose();
@@ -114,15 +127,41 @@ public class BDao {
 		return dto;
 	}
 
-	public void dbClose() {
+	public int modify(String bId, String bName, String bTitle, String bContent) {
+		int result = 0;
 		try {
-			if (resultSet != null) resultSet.close();
-			if (preparedStatement != null) preparedStatement.close();
-			if (connection != null) connection.close();
+			connection = dataSource.getConnection();
+			sql = "UPDATE mvc_board SET bName=?, bTitle=?, bContent=? WHERE bId=?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, bName);
+			preparedStatement.setString(2, bTitle);
+			preparedStatement.setString(3, bContent);
+			preparedStatement.setInt(4, Integer.parseInt(bId));
+			result = preparedStatement.executeUpdate();
 		} catch (Exception e) {
-			System.out.println("dbClose()");
+			System.out.println("BDao.modify()");
 			e.printStackTrace();
+		} finally {
+			dbClose();
 		}
+		return result;
+	}
+
+	public int delete(String bId) {
+		int result = 0;
+		try {
+			connection = dataSource.getConnection();
+			sql = "DELETE FROM mvc_board WHERE bId=?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, Integer.parseInt(bId));
+			result = preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("BDao.delete()");
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return result;
 	}
 
 }

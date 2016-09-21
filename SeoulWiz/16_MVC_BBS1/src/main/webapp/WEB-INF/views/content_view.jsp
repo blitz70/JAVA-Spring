@@ -24,7 +24,7 @@
 				<td>이름</td><td><input type="text" name="bName" value="${content.bName}" size="65"></td>
 			</tr>
 			<tr>
-				<td>제목</td><td><input type="text" name="bName" value="${content.bTitle}" size="65"></td>
+				<td>제목</td><td><input type="text" name="bTitle" value="${content.bTitle}" size="65"></td>
 			</tr>
 			<tr>
 				<td>내용</td><td><textarea rows="10" cols="50" name="bContent">${content.bContent}</textarea></td>
@@ -35,7 +35,7 @@
 			<tr>
 				<td colspan="2" align="center">
 					<a href="list">목록</a>
-					<a href="delete">삭제</a>
+					<a href="delete?bId=${content.bId}">삭제</a>
 					<a href="reply">답변</a>
 				</td>
 			</tr>
