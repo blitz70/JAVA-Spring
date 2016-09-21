@@ -36,7 +36,7 @@
 				<td colspan="2" align="center">
 					<a href="list">목록</a>
 					<a href="delete?bId=${content.bId}">삭제</a>
-					<a href="reply">답변</a>
+					<a href="reply_view?bId=${content.bId}">답변</a>
 				</td>
 			</tr>
 		</table>

@@ -13,7 +13,6 @@ import com.iamtek.myapp.command.BDeleteCommand;
 import com.iamtek.myapp.command.BListCommand;
 import com.iamtek.myapp.command.BModifyCommand;
 import com.iamtek.myapp.command.BReplyCommand;
-import com.iamtek.myapp.command.BReplyViewCommand;
 import com.iamtek.myapp.command.BWriteCommand;
 
 @Controller
@@ -75,7 +74,7 @@ public class BController {
 	public String reply_view(HttpServletRequest request, Model model) {
 		System.out.println("reply_view()");
 		model.addAttribute("request", request);
-		command = new BReplyViewCommand();
+		command = new BContentCommand();
 		command.execute(model);
 		return "reply_view";
 	}

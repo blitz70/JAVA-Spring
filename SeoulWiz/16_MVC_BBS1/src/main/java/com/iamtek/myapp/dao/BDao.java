@@ -164,4 +164,47 @@ public class BDao {
 		return result;
 	}
 
+	public int reply(String bId, String bName, String bTitle, String bContent) {
+		int result = 0;
+		try {
+			int bGroup = 0;
+			int bStep = 0;
+			int bIndent = 0;
+			connection = dataSource.getConnection();
+			//original bGroup, bStep, bIndent
+			sql = "SELECT bGroup, bStep, bIndent FROM mvc_board WHERE bId=?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, Integer.parseInt(bId));
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				bGroup = resultSet.getInt("bGroup");
+				bStep = resultSet.getInt("bStep");
+				bIndent = resultSet.getInt("bIndent");
+			}
+			//make space for reply post, bGroup, bStep
+			sql = "UPDATE mvc_board SET bStep=bStep+1 WHERE bGroup=? AND bStep>?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, bGroup);
+			preparedStatement.setInt(2, bStep);
+			preparedStatement.executeUpdate();
+			//insert reply
+			sql = "INSERT INTO mvc_board("+
+			"bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent) VALUES (?, ?, ?, now(), 0, ?, ?, ?)";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, bName);
+			preparedStatement.setString(2, bTitle);
+			preparedStatement.setString(3, bContent);
+			preparedStatement.setInt(4, bGroup);
+			preparedStatement.setInt(5, bStep+1);
+			preparedStatement.setInt(6, bIndent+1);
+			result = preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("BDao.reply()");
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
+		return result;
+	}
+
 }

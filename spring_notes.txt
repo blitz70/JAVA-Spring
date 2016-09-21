@@ -468,9 +468,9 @@
 				return view;
 			}
 
-16-19. MVC Project, BBS
+16-20. MVC Project, BBS
 	16. DB1(setup), Localization(web.xml)
 	17. Package, Controller, Command interface & class
 	18. List, Write, Content, DB2(JDBC, DBCP), JSTL
 	19. Modify, Delete 
-	
+	20. Reply
