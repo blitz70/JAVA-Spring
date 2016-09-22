@@ -474,3 +474,79 @@
 	18. List, Write, Content, DB2(JDBC, DBCP), JSTL
 	19. Modify, Delete 
 	20. Reply
+
+Localization(web.xml)
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+Database
+	1. JDBC (Maven dependency, pom.xml)
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.39</version>
+		</dependency>
+	2. DBCP (tomcat, context.xml)
+		<Resource
+			auth="Container" type="javax.sql.DataSource" maxActive="50" maxWait="1000"
+			name="jdbc/MySQL" driverClassName = "com.mysql.jdbc.Driver" 	url="jdbc:mysql://localhost:3306/mydb"
+			username="blitz" password="mysql"
+		/>
+	3. DAO
+		Fields
+			private DataSource dataSource;
+			private Connection connection;
+			private PreparedStatement preparedStatement;
+			private ResultSet resultSet;
+			private String sql;
+		Constructor
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/MySQL");
+		Methods
+			connection = dataSource.getConnection();
+			sql = "...?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, bId);
+			...
+			preparedStatement.executeUpdate();	//executeQuery();
+			...
+			close fields
+	
+21. Spring JDBC (hard!)
+	Reduce & simplify code
+	Setup
+		1. Maven dependency (pom.xml), mysql?
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>4.1.4.RELEASE</version>
+			</dependency>
+		2. DI bean (servlet-context.xml)
+			<beans:bean name="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+				<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+				<beans:property name="url" value="jdbc:mysql://localhost:3306/mydb" />
+				<beans:property name="username" value="blitz"/>
+				<beans:property name="password" value="mysql"/>
+			</beans:bean>
+			<beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
+				<beans:property name="dataSource" ref="driverManagerDataSource"/>
+			</beans:bean>
+		3. JdbcTemplate
+			Load from Controller and make it global
+		4. DAO
+			use JdbcTemplate
+			

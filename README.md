@@ -29,14 +29,11 @@ JAVA Spring framework study
 [14](https://www.youtube.com/watch?v=dlqoM31YPJ8&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=77)
 * Validation
 [15](https://www.youtube.com/watch?v=h0yhYSjA9JI&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=78)
-
-* MVC Application, BBS
+* BBS
 [16](https://www.youtube.com/watch?v=RYqlq1F9Jb8&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=79)
 [17](https://www.youtube.com/watch?v=6fjShNxd8_c&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=80)
 [18](https://www.youtube.com/watch?v=HTFmBE9kZKs&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=81)
 [19](https://www.youtube.com/watch?v=7uaw6_j3cos&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=82)
 [20](https://www.youtube.com/watch?v=007mbb_Kcs0&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=83)
-
-
-
-
+* Spring JDBC
+[21](https://www.youtube.com/watch?v=bEQJ4paS3G4&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=84)
