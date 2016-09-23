@@ -546,7 +546,10 @@ Database
 				<beans:property name="dataSource" ref="driverManagerDataSource"/>
 			</beans:bean>
 		3. JdbcTemplate
-			Load from Controller and make it global
+			Load(@Autowired) from Controller and make it global
 		4. DAO
 			use JdbcTemplate
-			
+			Select : many(template.query), one(template.queryForObject) 
+			Insert, Update, Delete : template.update() 
+		5. Not needed
+			DBCP (tomcat, context.xml)

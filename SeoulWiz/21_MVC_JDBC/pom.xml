@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.iamtek</groupId>
 	<artifactId>myapp</artifactId>
-	<name>20_MVC_JDBC</name>
+	<name>21_MVC_JDBC</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -119,10 +119,10 @@
 		
 		<!-- mysql -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.39</version>
-		</dependency>
+ 			<groupId>mysql</groupId>
+ 			<artifactId>mysql-connector-java</artifactId>
+ 			<version>5.1.39</version>
+ 		</dependency>
 
 		<!-- Spring JDBC 1 -->
 		<dependency>
