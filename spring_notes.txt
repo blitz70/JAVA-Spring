@@ -296,7 +296,7 @@
 				<bean id="logAop" class="kr.co.iamtek.LogAop" />
 				<aop:aspectj-autoproxy />
 
-11. Spring MVC basics
+11. MVC Basics
 	Overview
 		1. DispatcherServlet(auto) -> Controller
 		2. Controller <-> Model/ModelandView
@@ -526,7 +526,7 @@ Database
 			...
 			close fields
 	
-21. Spring JDBC (hard!)
+21. MVC Spring JDBC (hard!)
 	Reduce & simplify code
 	Setup
 		1. Maven dependency (pom.xml), mysql?
@@ -553,3 +553,5 @@ Database
 			Insert, Update, Delete : template.update() 
 		5. Not needed
 			DBCP (tomcat, context.xml)
+
+22. MVC Transaction
