@@ -1,0 +1,48 @@
+CREATE SCHEMA `mydb` DEFAULT CHARACTER SET utf8 ;
+		
+CREATE TABLE `mydb`.`mvc_board` (
+  `bId` INT NOT NULL AUTO_INCREMENT,
+  `bName` VARCHAR(20) NULL,
+  `bTitle` VARCHAR(100) NULL,
+  `bContent` VARCHAR(300) NULL,
+  `bDate` TIMESTAMP NULL,
+  `bHit` INT NULL,
+  `bGroup` INT NULL,
+  `bStep` INT NULL,
+  `bIndent` INT NULL,
+  PRIMARY KEY (`bId`));
+
+CREATE TABLE `mydb`.`card` (
+  `consumerId` VARCHAR(20) NOT NULL,
+  `amount` INT NOT NULL);
+  
+CREATE TABLE `mydb`.`ticket` (
+  `consumerId` VARCHAR(20) NOT NULL,
+  `countNum` INT NOT NULL);
+
+[Constraints]
+	Use trigger : Before insert&update
+		BEGIN
+		    if new.countNum >= 5 then
+		        signal sqlstate '45000' set message_text = "DB ERROR!";
+		    end if;
+		END
+	Doesn't work for MySQL
+		Add constraint, at table creation
+			CREATE TABLE Persons (
+			P_Id int NOT NULL CHECK (P_Id>0))
+		Add constraint with name, at table creation
+			CREATE TABLE Persons (
+			P_Id int NOT NULL,
+			City varchar(255),
+			CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes'))
+		Add constraint, on table
+			ALTER TABLE Persons
+			ADD CHECK (P_Id>0)
+		Add constraint with name, on table
+			ALTER TABLE Persons
+			ADD CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes')
+		Drop constraint
+			ALTER TABLE Persons
+			DROP CHECK chk_Person
+		

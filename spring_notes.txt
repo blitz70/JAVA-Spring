@@ -474,39 +474,37 @@
 	18. List, Write, Content, DB2(JDBC, DBCP), JSTL
 	19. Modify, Delete 
 	20. Reply
-
-Localization(web.xml)
-	<filter>
-		<filter-name>encodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-		<init-param>
-			<param-name>forceEncoding</param-name>
-			<param-value>true</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-Database
-	1. JDBC (Maven dependency, pom.xml)
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.39</version>
-		</dependency>
-	2. DBCP (tomcat, context.xml)
-		<Resource
-			auth="Container" type="javax.sql.DataSource" maxActive="50" maxWait="1000"
-			name="jdbc/MySQL" driverClassName = "com.mysql.jdbc.Driver" 	url="jdbc:mysql://localhost:3306/mydb"
-			username="blitz" password="mysql"
-		/>
-	3. DAO
+	Localization(web.xml)
+		<filter>
+			<filter-name>encodingFilter</filter-name>
+			<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+			<init-param>
+				<param-name>encoding</param-name>
+				<param-value>UTF-8</param-value>
+			</init-param>
+			<init-param>
+				<param-name>forceEncoding</param-name>
+				<param-value>true</param-value>
+			</init-param>
+		</filter>
+		<filter-mapping>
+			<filter-name>encodingFilter</filter-name>
+			<url-pattern>/*</url-pattern>
+		</filter-mapping>
+	Database
+		1. JDBC (Maven dependency, pom.xml)
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.39</version>
+			</dependency>
+		2. DBCP (tomcat, context.xml)
+			<Resource
+				auth="Container" type="javax.sql.DataSource" maxActive="50" maxWait="1000"
+				name="jdbc/MySQL" driverClassName="com.mysql.jdbc.Driver" 	url="jdbc:mysql://localhost:3306/mydb"
+				username="blitz" password="mysql"
+			/>
+	DAO
 		Fields
 			private DataSource dataSource;
 			private Connection connection;
@@ -529,7 +527,7 @@ Database
 21. MVC Spring JDBC (hard!)
 	Reduce & simplify code
 	Setup
-		1. Maven dependency (pom.xml), mysql?
+		1. Maven dependency (pom.xml), mysql
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-jdbc</artifactId>
@@ -538,7 +536,7 @@ Database
 		2. DI bean (servlet-context.xml)
 			<beans:bean name="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 				<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-				<beans:property name="url" value="jdbc:mysql://localhost:3306/mydb" />
+				<beans:property name="url" value="jdbc:mysql://localhost:3306/mydb?useSSL=false"" />
 				<beans:property name="username" value="blitz"/>
 				<beans:property name="password" value="mysql"/>
 			</beans:bean>
@@ -555,3 +553,35 @@ Database
 			DBCP (tomcat, context.xml)
 
 22. MVC Transaction
+	Concept : series of logics that are grouped and treated as an unit
+		Commit : when all logics in the unit are performed normally
+		Rollback : if any of the logic has an error the all logics in the unit are cancelled
+	MySQL Constraint : doesn't work, use trigger before insert&update
+		BEGIN
+		    if new.countNum >= 5 then
+		        signal sqlstate '45000' set message_text = "DB ERROR!";
+		    end if;
+		END
+	Setup	
+		1. Spring JDBC
+		2. DI (servlet-context.xml)
+			<beans:bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+				<beans:property name="dataSource" ref="dataSource" />	
+			</beans:bean>
+			<beans:bean name="dao" class="com.iamtek.myapp.dao.TicketDao">
+				<beans:property name="template" ref="template" />
+				<beans:property name="transactionManager" ref="transactionManager" />
+			</beans:bean>
+		3. DAO
+			PlatformTransactionManager transactionManager;
+			TransactionDefinition definition = new DefaultTransactionDefinition();
+			TransactionStatus status = transactionManager.getTransaction(definition);
+			try {
+				Logic1;
+				Logic2;
+				...
+				transactionManager.commit(status);
+			} catch {
+				transactionManager.rollback(status);
+			} 
+	
