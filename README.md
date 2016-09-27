@@ -39,3 +39,5 @@ JAVA Spring framework study
 [21](https://www.youtube.com/watch?v=bEQJ4paS3G4&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=84)
 * Transaction
 [22](https://www.youtube.com/watch?v=jSNrGgHk-ds&index=85&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+[23](https://www.youtube.com/watch?v=_TVaxeazdPw&index=86&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+
