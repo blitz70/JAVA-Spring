@@ -605,3 +605,11 @@
 					Logic2;
 				}
 			});
+	Transaction Propagation
+		PROPAGATION_
+			REQUIRED(0) : default, all
+			SUPPORTS(1) : follow parent
+			MANDATORY(2) : parent must have transaction
+			REQUIRES_NEW(3) : independent transaction
+			NOT_SUPPORTED(4) : no transaction
+			NEVER(5) : parent must have no transaction
