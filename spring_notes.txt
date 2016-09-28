@@ -553,63 +553,55 @@
 			DBCP (tomcat, context.xml)
 
 22-23. MVC Transaction
-	Concept : series of logics that are grouped and treated as an unit
+	Concept : method of treating series of logics as a grouped unit
 		Commit : when all logics in the unit are performed normally
-		Rollback : if any of the logic has an error the all logics in the unit are cancelled
+		Rollback : if any of the logic gives an error all logics in the unit are cancelled
 	MySQL Constraint : doesn't work, use trigger before insert&update
-		BEGIN
-		    if new.countNum >= 5 then
-		        signal sqlstate '45000' set message_text = "DB ERROR!";
-		    end if;
-		END
-	Setup	1
-		1. Spring JDBC
-		2. DI (servlet-context.xml)
-			dataSource, template
-			<beans:bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-				<beans:property name="dataSource" ref="dataSource" />	
-			</beans:bean>
-			<beans:bean name="dao" class="com.iamtek.myapp.dao.TicketDao">
-				<beans:property name="template" ref="template" />
-				<beans:property name="transactionManager" ref="transactionManager" />
-			</beans:bean>
-		3. DAO
-			PlatformTransactionManager transactionManager;
-			TransactionDefinition definition = new DefaultTransactionDefinition();
-			TransactionStatus status = transactionManager.getTransaction(definition);
-			try {
-				Logic1;
-				Logic2;
-				...
-				transactionManager.commit(status);
-			} catch {
-				transactionManager.rollback(status);
-			} 
-	Setup2, transactionTemplate	
-		1. Spring JDBC
-		2. DI (servlet-context.xml)
-			dataSource, template, transactionManager
-			<beans:bean name="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
-				<beans:property name="transactionManager" ref="transactionManager"/>
-			</beans:bean>
-			<beans:bean name="dao" class="com.iamtek.myapp.dao.TicketDao">
-				<beans:property name="template" ref="template" />
-				<beans:property name="transactionTemplate" ref="transactionTemplate" />
-			</beans:bean>
-		3. DAO
-			TransactionTemplate transactionTemplate;
-			transactionTemplate.execute(new TransactionCallbackWithoutResult() {
-				@Override
-				protected void doInTransactionWithoutResult(TransactionStatus status) {
-					Logic1;
-					Logic2;
+	Method
+		1. transactionManager
+		2. transactionTemplate (recommended)
+			1. Spring JDBC
+			2. DI (servlet-context.xml)
+				dataSource, template, transactionManager
+				<beans:bean name="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+					<beans:property name="transactionManager" ref="transactionManager"/>
+				</beans:bean>
+				<beans:bean name="dao" class="com.iamtek.myapp.dao.TicketDao">
+					<beans:property name="template" ref="template" />
+					<beans:property name="transactionTemplate" ref="transactionTemplate" />
+				</beans:bean>
+			3. DAO
+				TransactionTemplate transactionTemplate;
+				try {
+					transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+						@Override
+						protected void doInTransactionWithoutResult(TransactionStatus status) {
+							Logic1;
+							Logic2;
+							...
+						}
+					});
+				} catch {
 				}
-			});
 	Transaction Propagation
-		PROPAGATION_
-			REQUIRED(0) : default, all
-			SUPPORTS(1) : follow parent
-			MANDATORY(2) : parent must have transaction
-			REQUIRES_NEW(3) : independent transaction
-			NOT_SUPPORTED(4) : no transaction
-			NEVER(5) : parent must have no transaction
+		Concept
+			When transactions are stacked determines how transactions are performed
+			used in transactionTemplate(?)
+		Types
+			PROPAGATION_
+				REQUIRED(0) : default, all
+				SUPPORTS(1) : follow parent
+				MANDATORY(2) : parent must have transaction
+				REQUIRES_NEW(3) : independent transaction
+				NOT_SUPPORTED(4) : no transaction
+				NEVER(5) : parent must have no transaction
+		DI (servlet-context.xml)
+			<beans:bean name="transactionTemplate1" class="org.springframework.transaction.support.TransactionTemplate">
+				<beans:property name="transactionManager" ref="transactionManager"/>
+				<beans:property name="propagationBehavior" value="0"/>
+			</beans:bean>
+			<beans:bean name="transactionTemplate2" class="org.springframework.transaction.support.TransactionTemplate">
+				<beans:property name="transactionManager" ref="transactionManager"/>
+				<beans:property name="propagationBehavior" value="0"/>
+			</beans:bean>
+

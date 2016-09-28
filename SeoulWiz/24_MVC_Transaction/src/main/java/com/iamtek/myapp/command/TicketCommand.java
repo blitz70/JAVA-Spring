@@ -21,6 +21,10 @@ public class TicketCommand implements ITicketCommand {
 
 	@Override
 	public void execute(final TicketDto dto) {
+//		dto.setAmount("1");
+//		dao.buyTicket(dto);
+//		dto.setAmount("5");
+//		dao.buyTicket(dto);
 		try {
 			transactionTemplate2.execute(new TransactionCallbackWithoutResult() {
 				@Override
