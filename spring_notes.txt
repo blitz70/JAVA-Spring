@@ -552,7 +552,7 @@
 		5. Not needed
 			DBCP (tomcat, context.xml)
 
-22-23. MVC Transaction
+22-24. MVC Transaction
 	Concept : method of treating series of logics as a grouped unit
 		Commit : when all logics in the unit are performed normally
 		Rollback : if any of the logic gives an error all logics in the unit are cancelled
@@ -605,3 +605,53 @@
 				<beans:property name="propagationBehavior" value="0"/>
 			</beans:bean>
 
+25. Security
+	0. Default settings
+		Version (pom.xml)
+			<java-version>1.7</java-version>
+			<org.springframework-version>3.2.5.RELEASE</org.springframework-version>
+			Project->Maven->Update project
+		Filter(web.xml)
+			Localization
+	1. Security library (pom.xm)
+		Add maven dependencies : spring-security-config, core, web, taglibs
+	2. Security settings
+		Add security file (security-context.xml)
+			<security:http auto-config="true">
+				<security:intercept-url pattern="/login.html*" access="ROLE_USER"/>
+				<security:intercept-url pattern="/welcome.html*" access="ROLE_ADMIN"/>
+			</security:http>
+		Register security file (web.xml)
+			<context-param>
+				<param-name>contextConfigLocation</param-name>
+				<param-value>
+					/WEB-INF/spring/root-context.xml
+					/WEB-INF/spring/appServlet/security-context.xml
+				</param-value>
+			</context-param>
+	3. Use security, In-Memory authorization
+		Add authentication (security-context.xml)
+			<security:authentication-manager>
+				<security:authentication-provider>
+					<security:user-service>
+						<security:user name="user" password="123" authorities="ROLE_USER"/>
+						<security:user name="admin" password="123" authorities="ROLE_USER, ROLE_ADMIN"/>
+					</security:user-service>
+				</security:authentication-provider>
+			</security:authentication-manager>
+		Register security filter (web.xm)
+			<filter>
+				<filter-name>springSecurityFilterChain</filter-name>
+				<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+			</filter>
+			<filter-mapping>
+		        <filter-name>springSecurityFilterChain</filter-name>
+				<url-pattern>/*</url-pattern>
+			</filter-mapping>
+		Change dispatcher path (web.xm)
+			<servlet-mapping>
+				<servlet-name>appServlet</servlet-name>
+				<url-pattern>*.html</url-pattern>
+			</servlet-mapping>
+		Controller
+			...

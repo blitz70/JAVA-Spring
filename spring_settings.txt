@@ -14,10 +14,9 @@ Eclipse (www.eclipse.org)
 		server option : public module contexts to separate XML files
 	3. Spring Tool Suite
 		download & install STS from eclipse marketplace (check version)
-	4. project
-		Spring Legacy Project -> Simple Spring Maven
-	5. MVC project
-		Spring Legacy Project -> Spring MVC Project -> Package(p1.p2.p3 : p3 = context)
+	4. Project
+		Normal : Spring Legacy Project -> Simple Spring Maven
+		MVC : Spring Legacy Project -> Spring MVC Project -> Package(p1.p2.p3 : p3 = context)
 
 Spring project
 	src/main/java : class files (.java)
@@ -57,3 +56,15 @@ Database
 			name="jdbc/MySQL" driverClassName="com.mysql.jdbc.Driver" 	url="jdbc:mysql://localhost:3306/mydb"
 			username="blitz" password="mysql"
 		/>
+
+Maven
+	1. Version(pom.xml)
+		<java-version>1.7</java-version>
+		<org.springframework-version>3.2.5.RELEASE</org.springframework-version>
+	2. Update
+		Project->Maven->Update project
+	3. Dependency search
+		Repository : Views->Maven Repositories
+		Update : Global->Update Index
+		Rebuild : Local->Rebuild Index
+		Update : Preferences->Maven->Download repository index updates on startup
