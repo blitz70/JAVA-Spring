@@ -44,3 +44,4 @@ JAVA Spring framework study
 * Security
 [25](https://www.youtube.com/watch?v=_pMwwaHnzj4&index=88&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 [26](https://www.youtube.com/watch?v=ygRCSlF_B_E&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=89)
+[27](https://www.youtube.com/watch?v=5tbVE1nOGdk&index=90&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
