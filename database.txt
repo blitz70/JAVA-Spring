@@ -20,6 +20,12 @@ CREATE TABLE `mydb`.`ticket` (
   `consumerId` VARCHAR(20) NOT NULL,
   `countNum` INT NOT NULL);
 
+CREATE TABLE `mydb`.`board` (
+  `mId` INT NOT NULL AUTO_INCREMENT,
+  `mWriter` VARCHAR(100) NULL,
+  `mContent` VARCHAR(300) NULL,
+  PRIMARY KEY (`mId`));
+
 [Constraints]
 	Use trigger : Before insert&update
 		BEGIN

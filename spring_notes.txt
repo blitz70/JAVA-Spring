@@ -296,7 +296,7 @@
 				<bean id="logAop" class="kr.co.iamtek.LogAop" />
 				<aop:aspectj-autoproxy />
 
-11. MVC Basics
+11. Spring MVC Basics
 	Overview
 		1. DispatcherServlet(auto) -> Controller
 		2. Controller <-> Model/ModelandView
@@ -321,7 +321,7 @@
 		path : src/main/webapp/resources
 		new folder need to be registered in servlet-context.xml
 			
-12. MVC Controller
+12. Spring MVC Controller
 	Controller class
 		@Controller annotation : designate class as controller
 		@RequestMapping : map request path to request method
@@ -363,7 +363,7 @@
 			}
 		}
 		
-13. MVC Form data, getting data from client
+13. Spring MVC Form data, getting data from client
 	1. HttpServletRequest class
 		@RequestMapping("board/confirm1")
 		public String confirm1(HttpServletRequest request, Model model) {
@@ -391,7 +391,7 @@
 			return "student";
 		}
 	
-14. MVC @RequestMapping parameters
+14. Spring MVC @RequestMapping parameters
 	Get vs Post : choose which form method to process
 		@RequestMapping(method = RequestMethod.GET, value = "student1")
 	@ModelAttribute : rename data object
@@ -410,7 +410,7 @@
 			return "redirect:http://localhost:8080/myproject/redirectURL1.jsp";	//goes to actual file
 		}
 	
-15. MVC Validation
+15. Spring MVC Validation
 	Concept
 		Method of checking form data at server side, instead of client side using javascript
 		Manual method is most flexible compared to ValidationUtils or Spring framework validation
@@ -468,7 +468,7 @@
 				return view;
 			}
 
-16-20. MVC Project, BBS
+16-20. Spring MVC Project, BBS
 	16. DB1(setup), Localization(web.xml)
 	17. Package, Controller, Command interface & class
 	18. List, Write, Content, DB2(JDBC, DBCP), JSTL
@@ -524,7 +524,7 @@
 			...
 			close fields
 	
-21. MVC Spring JDBC (hard!)
+21. Spring MVC Spring JDBC (hard!)
 	Reduce & simplify code
 	Setup
 		1. Maven dependency (pom.xml), mysql
@@ -536,7 +536,7 @@
 		2. DI bean (servlet-context.xml)
 			<beans:bean name="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 				<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-				<beans:property name="url" value="jdbc:mysql://localhost:3306/mydb?useSSL=false"" />
+				<beans:property name="url" value="jdbc:mysql://localhost:3306/mydb?useSSL=false" />
 				<beans:property name="username" value="blitz"/>
 				<beans:property name="password" value="mysql"/>
 			</beans:bean>
@@ -552,7 +552,7 @@
 		5. Not needed
 			DBCP (tomcat, context.xml)
 
-22-24. MVC Transaction
+22-24. Spring MVC Transaction (hard!)
 	Concept : method of treating series of logics as a grouped unit
 		Commit : when all logics in the unit are performed normally
 		Rollback : if any of the logic gives an error all logics in the unit are cancelled
@@ -605,7 +605,7 @@
 				<beans:property name="propagationBehavior" value="0"/>
 			</beans:bean>
 
-25-27. MVC Security
+25-27. Spring MVC Security
 	Concept
 	Setup (pom.xml, web.xml)
 		0. Default settings
@@ -710,4 +710,5 @@
 					<s:authorize ifNotGranted="ROLE_USER">
 						<p>is Log-Out</p>
 					</s:authorize>
-				
+
+28. Spring MVC MyBatis

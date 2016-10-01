@@ -17,7 +17,7 @@ JAVA Spring framework study
 * AOP (Aspect oriented programming)
 [9](https://www.youtube.com/watch?v=2F8K9BLgvjE&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=72)
 [10](https://www.youtube.com/watch?v=x4qWZpDN444&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=73)
-* MVC
+* Spring MVC
 
 >* Basics
 [11](https://www.youtube.com/watch?v=6P9C3myUsrw&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=74)
@@ -45,3 +45,6 @@ JAVA Spring framework study
 [25](https://www.youtube.com/watch?v=_pMwwaHnzj4&index=88&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 [26](https://www.youtube.com/watch?v=ygRCSlF_B_E&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=89)
 [27](https://www.youtube.com/watch?v=5tbVE1nOGdk&index=90&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+* MyBatis
+[28](https://www.youtube.com/watch?v=sTfgANm41LQ&index=91&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+
