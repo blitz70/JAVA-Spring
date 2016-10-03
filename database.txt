@@ -26,6 +26,11 @@ CREATE TABLE `mydb`.`board` (
   `mContent` VARCHAR(300) NULL,
   PRIMARY KEY (`mId`));
 
+[Syntax]
+	Select : SELECT column_name,column_name FROM table_name; SELECT * FROM table_name;
+	Delete : DELETE FROM table_name WHERE some_column=some_value;
+	Insert : INSERT INTO table_name (column1,column2,column3,...) VALUES (value1,value2,value3,...);
+
 [Constraints]
 	Use trigger : Before insert&update
 		BEGIN

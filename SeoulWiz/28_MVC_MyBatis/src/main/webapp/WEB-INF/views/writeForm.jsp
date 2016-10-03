@@ -8,5 +8,23 @@
 </head>
 <body>
 
+	<form action="write" method="post">
+		<table width="500"  border="1"  cellpadding="0" cellspacing="0">
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="mWriter"></td>
+			</tr>
+			<tr><td colspan="2">내용<td></tr>
+			<tr>
+				<td colspan="2"><textarea name="mContent"  rows="5" cols="50"></textarea></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="입력"></td>
+				<td><a href="list">목록</a></td>
+			</tr>
+		</table>
+		
+	</form>
+
 </body>
 </html>
