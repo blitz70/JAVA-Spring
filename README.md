@@ -47,4 +47,5 @@ JAVA Spring framework study
 [27](https://www.youtube.com/watch?v=5tbVE1nOGdk&index=90&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 * MyBatis
 [28](https://www.youtube.com/watch?v=sTfgANm41LQ&index=91&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
+[29](https://www.youtube.com/watch?v=Lx5KrCP2nVQ&index=92&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 

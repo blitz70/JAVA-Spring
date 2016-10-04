@@ -1,0 +1,7 @@
+CREATE SCHEMA `mydb` DEFAULT CHARACTER SET utf8 ;
+		
+CREATE TABLE `mydb`.`board` (
+  `mId` INT NOT NULL AUTO_INCREMENT,
+  `mWriter` VARCHAR(100) NULL,
+  `mContent` VARCHAR(300) NULL,
+  PRIMARY KEY (`mId`));

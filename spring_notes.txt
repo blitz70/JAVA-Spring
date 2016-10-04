@@ -525,7 +525,8 @@
 			close fields
 	
 21. Spring MVC Spring JDBC (hard!)
-	Reduce & simplify code
+	Concept
+		Reduce & simplify code compared to normal JDBC
 	Setup
 		1. Maven dependency (pom.xml), mysql
 			<dependency>
@@ -607,6 +608,8 @@
 
 25-27. Spring MVC Security
 	Concept
+		Add very high level security to project
+		Security using database (check)
 	Setup (pom.xml, web.xml)
 		0. Default settings
 			Version (pom.xml)
@@ -711,4 +714,54 @@
 						<p>is Log-Out</p>
 					</s:authorize>
 
-28. Spring MVC MyBatis
+28-29. Spring MVC MyBatis
+	Concept
+		Reduce & simplify code compared to spring JDBC
+	Setup (pom.xml, web.xml)
+		0. Default settings
+			Version (pom.xml)
+			Filter : Encoding (web.xml)
+		1. Maven dependency (pom.xml)
+			mybatis(3.4.1), mybatis-spring(1.3.0)
+		2. Spring settings (servlet-context.xml)
+			dataSource
+			template, dao?
+			<beans:bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+				<beans:property name="dataSource" ref="dataSource" />
+				<beans:property name="mapperLocations" value="classpath:com/iamtek/myapp/dao/mapper/*.xml"/>
+			</beans:bean>
+			<beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+				<beans:constructor-arg index="0" ref="sqlSessionFactoryBean"/>
+			</beans:bean>
+			take care of mapperLocation value
+	Use
+		1. MyBatis Mapping
+			Mapper Interface (IDao.java)
+				public ArrayList<ContentDto> list();
+				public void write(String writer, String content);
+				public ContentDto view(String id);
+				public void delete(String id);
+			Mapper XML (IDao.xml)
+				<!DOCTYPE mapper
+				    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	    			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.iamtek.myapp.dao.IDao">
+					<select id="list" resultType="com.iamtek.myapp.dto.ContentDto">
+						SELECT * FROM mydb.board ORDER BY mId DESC
+					</select>
+					<insert id="write"></insert>
+					<select id="view"></select>
+					<delete id="delete"></delete>
+				</mapper>
+		2. Controller
+			Load bean
+				@Autowired
+				private SqlSession sqlsession;
+			RM method
+				@RequestMapping("/list")
+				public String list(Model model) {
+					System.out.println("list");
+					IDao dao = sqlsession.getMapper(IDao.class);
+					model.addAttribute("list", dao.list());
+					return "list";
+				}
