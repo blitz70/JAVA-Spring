@@ -1,5 +1,10 @@
 [Seoul Wiz]
 
+0. Further Study
+	Spring security with database
+	MyBatis multiple sql
+	MyBatis + Transaction + Validation + Security
+
 1-2. Concept
 	Description
 		When object A needs objects B & C -> A depends on B & C
