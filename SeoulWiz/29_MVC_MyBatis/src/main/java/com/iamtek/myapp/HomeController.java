@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.iamtek.myapp.dao.ContentDao;
 import com.iamtek.myapp.dao.IDao;
 
 /**
@@ -25,6 +24,8 @@ import com.iamtek.myapp.dao.IDao;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
+	private IDao dao;
 	
 	@Autowired
 	private SqlSession sqlsession;
@@ -49,12 +50,12 @@ public class HomeController {
 	@RequestMapping("/list")
 	public String list(Model model) {
 		System.out.println("list");
-		IDao dao = sqlsession.getMapper(IDao.class);
+		dao = sqlsession.getMapper(IDao.class);
 		model.addAttribute("list", dao.list());
 		return "list";
 	}
 	
-	/*@RequestMapping("/writeForm")
+	@RequestMapping("/writeForm")
 	public String writeForm() {
 		System.out.println("writeForm");
 		return "writeForm";
@@ -63,6 +64,7 @@ public class HomeController {
 	@RequestMapping("/write")
 	public String write(HttpServletRequest request, Model model) {
 		System.out.println("write");
+		dao = sqlsession.getMapper(IDao.class);
 		dao.write(request.getParameter("mWriter"), request.getParameter("mContent"));
 		return "redirect:list";
 	}
@@ -70,6 +72,7 @@ public class HomeController {
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request, Model model) {
 		System.out.println("delete");
+		dao = sqlsession.getMapper(IDao.class);
 		dao.delete(request.getParameter("mId"));
 		return "redirect:list";
 	}
@@ -77,9 +80,9 @@ public class HomeController {
 	@RequestMapping("/view")
 	public String content(HttpServletRequest request, Model model) {
 		System.out.println("view");
+		dao = sqlsession.getMapper(IDao.class);
 		model.addAttribute("view", dao.view(request.getParameter("mId")));
 		return "view";
-	}*/
-	
+	}
 	
 }
