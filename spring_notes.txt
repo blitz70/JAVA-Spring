@@ -1,8 +1,12 @@
 [Seoul Wiz]
 
 0. Further Study
+	MyBatis(Multi Query) + Transaction
+		JDBC url : jdbc:mysql://localhost:3306/mydb?allowMultiQueries=true"
+		mapper xml
+			INSERT INTO card (consumerId, amount) VALUES (#{consumerId}, #{amount});
+			INSERT INTO ticket (consumerId, countNum) VALUES (#{consumerId}, #{amount});
 	Spring security with database
-	MyBatis multiple sql
 	MyBatis + Transaction + Validation + Security
 
 1-2. Concept
@@ -10,7 +14,7 @@
 		When object A needs objects B & C -> A depends on B & C
 			1 : A directly creates B & C
 			2 : B & C are created in advance somewhere(IOC container) then injected/inserted(DI method) into A
-	DI : Dependency Injection (�쓽議댁꽦 二쇱엯)
+	DI : Dependency Injection
 	IOC Container
 		IOC(Inversion of Control) container, spring container, bean container
 	Spring : DI + IOC
@@ -730,7 +734,6 @@
 			mybatis(3.4.1), mybatis-spring(1.3.0)
 		2. Spring settings (servlet-context.xml)
 			dataSource
-			template, dao?
 			<beans:bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 				<beans:property name="dataSource" ref="dataSource" />
 				<beans:property name="mapperLocations" value="classpath:com/iamtek/myapp/dao/mapper/*.xml"/>
