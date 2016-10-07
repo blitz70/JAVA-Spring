@@ -26,7 +26,7 @@
 	<!-- Spring JDBC -->
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url" value="jdbc:mysql://localhost:3306/mydb?allowMultiQueries=true" />
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/mydb?useSSL=false&amp;allowMultiQueries=true" />
 		<beans:property name="username" value="blitz" />
 		<beans:property name="password" value="mysql" />
 	</beans:bean>

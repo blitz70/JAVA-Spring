@@ -1,9 +1,9 @@
 [Further Study]
 
 01. MyBatis(Multi Query) + Transaction
-	JDBC url
-		jdbc:mysql://localhost:3306/mydb?allowMultiQueries=true
-	mapper xml
+	JDBC url : allow multi queries, must use &amp instead of &
+		useSSL=false&amp;allowMultiQueries=true
+	mapper xml : object parameter
 		INSERT INTO card (consumerId, amount) VALUES (#{consumerId}, #{amount});
 		INSERT INTO ticket (consumerId, countNum) VALUES (#{consumerId}, #{amount});
 
