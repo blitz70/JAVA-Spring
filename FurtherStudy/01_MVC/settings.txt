@@ -1,0 +1,17 @@
+CREATE SCHEMA `mydb` DEFAULT CHARACTER SET utf8 ;
+		
+CREATE TABLE `mydb`.`card` (
+  `consumerId` VARCHAR(20) NULL,
+  `amount` VARCHAR(20) NULL);
+  
+CREATE TABLE `mydb`.`ticket` (
+  `consumerId` VARCHAR(20) NULL,
+  `countNum` VARCHAR(20) NULL);
+  
+[Constraints]
+	Use trigger : Before insert&update
+		BEGIN
+		    if new.countNum >= 5 then
+		        signal sqlstate '45000' set message_text = "DB ERROR!";
+		    end if;
+		END

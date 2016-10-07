@@ -1,13 +1,16 @@
-[Seoul Wiz]
+[Further Study]
 
-0. Further Study
-	MyBatis(Multi Query) + Transaction
-		JDBC url : jdbc:mysql://localhost:3306/mydb?allowMultiQueries=true"
-		mapper xml
-			INSERT INTO card (consumerId, amount) VALUES (#{consumerId}, #{amount});
-			INSERT INTO ticket (consumerId, countNum) VALUES (#{consumerId}, #{amount});
-	Spring security with database
-	MyBatis + Transaction + Validation + Security
+01. MyBatis(Multi Query) + Transaction
+	JDBC url
+		jdbc:mysql://localhost:3306/mydb?allowMultiQueries=true
+	mapper xml
+		INSERT INTO card (consumerId, amount) VALUES (#{consumerId}, #{amount});
+		INSERT INTO ticket (consumerId, countNum) VALUES (#{consumerId}, #{amount});
+
+Spring security with database
+MyBatis + Transaction + Validation + Security
+
+[Seoul Wiz]
 
 1-2. Concept
 	Description

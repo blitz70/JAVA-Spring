@@ -50,6 +50,6 @@ JAVA Spring framework study
 [29](https://www.youtube.com/watch?v=Lx5KrCP2nVQ&index=92&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 [30](https://www.youtube.com/watch?v=qVXIC2P1tuU&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=93)
 
-* Further Study
+##Further Study
 
->* MyBatis (Multi SQL) + Transaction [0]
+* MyBatis (Multi SQL) + Transaction [01]
