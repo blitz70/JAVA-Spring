@@ -7,8 +7,9 @@
 		INSERT INTO card (consumerId, amount) VALUES (#{consumerId}, #{amount});
 		INSERT INTO ticket (consumerId, countNum) VALUES (#{consumerId}, #{amount});
 
-Spring security with database
-MyBatis + Transaction + Validation + Security
+Spring Security with database
+	http://goldenraccoon.tistory.com/entry/SPRING-SECURITY-DB-LOGIN
+Spring Webflow
 
 [Seoul Wiz]
 

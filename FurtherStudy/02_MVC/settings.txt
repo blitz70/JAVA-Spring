@@ -10,5 +10,3 @@ CREATE TABLE `mydb`.`user` (
 CREATE TABLE `mydb`.`user_auth` (
   `no` INT NOT NULL,
   `authority` VARCHAR(100) NOT NULL);
-
-http://goldenraccoon.tistory.com/entry/SPRING-SECURITY-DB-LOGIN
