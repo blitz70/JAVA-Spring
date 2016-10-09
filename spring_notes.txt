@@ -7,9 +7,10 @@
 		INSERT INTO card (consumerId, amount) VALUES (#{consumerId}, #{amount});
 		INSERT INTO ticket (consumerId, countNum) VALUES (#{consumerId}, #{amount});
 
-Spring Security with database
+02. Spring Security with database
+	Spring Security 4.1.3 update
+		fix syntax errors
 	http://goldenraccoon.tistory.com/entry/SPRING-SECURITY-DB-LOGIN
-Spring Webflow
 
 [Seoul Wiz]
 

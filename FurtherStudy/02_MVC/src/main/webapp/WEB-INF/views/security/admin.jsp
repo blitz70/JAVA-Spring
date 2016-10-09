@@ -6,13 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>welcome</title>
+<title>Admin</title>
 </head>
 <body>
 
-	<h1>welcome.jsp</h1>
+	<h1>Admin.jsp</h1>
 
-	<a href="${pageContext.request.contextPath}/j_spring_security_logout">Log out</a>
+	<c:url var="logoutUrl" value="/my_logout" />
+	<a href="${logoutUrl}">Log out</a>
 
 </body>
 </html>

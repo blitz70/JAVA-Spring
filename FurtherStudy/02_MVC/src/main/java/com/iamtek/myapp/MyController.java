@@ -14,14 +14,14 @@ public class MyController {
 		return "security/login";
 	}
 
-	@RequestMapping("/welcome.html")
-	public String welcome(Locale locale, Model model) {
-		return "security/welcome";
+	@RequestMapping("/admin")
+	public String admin(Locale locale, Model model) {
+		return "security/admin";
 	}
 
 	@RequestMapping("/loginForm.html")
 	public String loginForm(Locale locale, Model model) {
 		return "security/loginForm";
 	}
-	
+
 }

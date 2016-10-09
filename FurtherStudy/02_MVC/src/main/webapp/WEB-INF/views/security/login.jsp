@@ -12,17 +12,20 @@
 
 	<h1>login.jsp</h1>
 
-	<%-- <s:authorize access="hasRole('ROLE_ADMIN')">
+	<s:authorize access="hasRole('ROLE_ADMIN')">
 		<p>Welcome Administrator !</p>
-	</s:authorize> --%>
-	<s:authorize access="hasAnyRole(ROLE_ADMIN','ROLE_USER')">
+		<c:url var="adminUrl" value="/admin" />
+		<a href="${adminUrl}">To Admin</a>
+	</s:authorize>
+	<s:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
 		<p>Login : <s:authentication property="name"/></p>
 	</s:authorize>
 	<s:authorize access="!hasAnyRole('ROLE_ADMIN','ROLE_USER')">
 		<p>Log-out</p>
 	</s:authorize>
 	
-	<a href="${pageContext.request.contextPath}/j_spring_security_logout">Log out</a>
+	<c:url var="logoutUrl" value="/my_logout" />
+	<a href="${logoutUrl}">Log out</a>
 
 </body>
 </html>

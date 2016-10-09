@@ -11,11 +11,10 @@
 
 	<h1>loginForm.jsp</h1>
 	
-	<c:url var="loginUrl" value="j_spring_security_check" />
+	<c:url var="loginUrl" value="/my_security_check" />
 	<form action="${loginUrl}" method="post">
-		<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-		ID : <input type="text" name="j_username" id="" /><br>
-		PW : <input type="password" name="j_password" id="" /><br>
+		ID : <input type="text" name="my_username" /><br>
+		PW : <input type="password" name="my_password" /><br>
 		<input type="submit" value="LOGIN" /><br>
 	</form>
 	
