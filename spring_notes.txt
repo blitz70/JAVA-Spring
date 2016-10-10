@@ -17,6 +17,7 @@
 		Logout : if csrf enabled, use post form
 	Database
 		http://goldenraccoon.tistory.com/entry/SPRING-SECURITY-DB-LOGIN
+		database-context.html : dataSource
 	Encryption
 
 [Seoul Wiz]

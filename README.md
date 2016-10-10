@@ -56,4 +56,5 @@ JAVA Spring framework study
 * Spring Security [02]
 
 >* Version update (4.1.3)
+* Login with database
 
