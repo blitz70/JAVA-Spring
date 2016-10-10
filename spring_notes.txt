@@ -7,10 +7,17 @@
 		INSERT INTO card (consumerId, amount) VALUES (#{consumerId}, #{amount});
 		INSERT INTO ticket (consumerId, countNum) VALUES (#{consumerId}, #{amount});
 
-02. Spring Security with database
-	Spring Security 4.1.3 update
-		fix syntax errors
-	http://goldenraccoon.tistory.com/entry/SPRING-SECURITY-DB-LOGIN
+02. Spring Security
+	Version update (4.1.3)
+		security-context.xml
+			<security:intercept-url> : update access, "ROLE_ADMIN" -> "hasRole('ROLE_ADMIN')"
+			<security:form-login> : update request parameters
+		Forms : if csrf enabled, add <s:csrfInput/>
+		Secured jsp : update security tags
+		Logout : if csrf enabled, use post form
+	Database
+		http://goldenraccoon.tistory.com/entry/SPRING-SECURITY-DB-LOGIN
+	Encryption
 
 [Seoul Wiz]
 

@@ -6,16 +6,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>login</title>
+<title>user</title>
 </head>
 <body>
 
-	<h1>login.jsp</h1>
+	<h1>user.jsp</h1>
 
 	<s:authorize access="hasRole('ROLE_ADMIN')">
 		<p>Welcome Administrator !</p>
 		<c:url var="adminUrl" value="/admin" />
-		<a href="${adminUrl}">To Admin</a>
+		<a href="${adminUrl}">To admin</a>
 	</s:authorize>
 	<s:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
 		<p>Login : <s:authentication property="name"/></p>
@@ -24,8 +24,12 @@
 		<p>Log-out</p>
 	</s:authorize>
 	
-	<c:url var="logoutUrl" value="/my_logout" />
-	<a href="${logoutUrl}">Log out</a>
+	<hr>
+	<c:url var="logoutUrl" value="/sec_logout" />
+	<form action="${logoutUrl}" method="post">
+		<s:csrfInput/>
+		<input type="submit" value="Log out">
+	</form>
 
 </body>
 </html>

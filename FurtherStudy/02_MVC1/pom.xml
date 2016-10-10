@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.iamtek</groupId>
 	<artifactId>myapp</artifactId>
-	<name>02_MVC</name>
+	<name>02_MVC1</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>

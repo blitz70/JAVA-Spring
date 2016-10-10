@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyController {
 
-	@RequestMapping("/login.html")
+	@RequestMapping("/user")
 	public String login(Locale locale, Model model) {
-		return "security/login";
+		return "security/user";
 	}
 
 	@RequestMapping("/admin")
@@ -19,7 +19,7 @@ public class MyController {
 		return "security/admin";
 	}
 
-	@RequestMapping("/loginForm.html")
+	@RequestMapping("/loginForm")
 	public String loginForm(Locale locale, Model model) {
 		return "security/loginForm";
 	}

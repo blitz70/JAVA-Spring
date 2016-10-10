@@ -6,14 +6,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin</title>
+<title>admin</title>
 </head>
 <body>
 
-	<h1>Admin.jsp</h1>
+	<h1>admin.jsp</h1>
 
-	<c:url var="logoutUrl" value="/my_logout" />
-	<a href="${logoutUrl}">Log out</a>
+	<c:url var="userUrl" value="/user" />
+	<a href="${userUrl}">To user</a><br>
+	
+	<hr>
+	<c:url var="logoutUrl" value="/sec_logout" />
+	<form action="${logoutUrl}" method="post">
+		<s:csrfInput/>
+		<input type="submit" value="Log out">
+	</form>
 
 </body>
 </html>
