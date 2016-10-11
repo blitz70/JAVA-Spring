@@ -1,19 +1,19 @@
 CREATE SCHEMA `mydb` DEFAULT CHARACTER SET utf8 ;
 		
-CREATE TABLE `mydb`.`user` (
+CREATE TABLE `mydb`.`users` (
   `no` INT NOT NULL AUTO_INCREMENT,
-  `id` VARCHAR(45) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NOT NULL,
   PRIMARY KEY (`no`));
   
-CREATE TABLE `mydb`.`user_auth` (
+CREATE TABLE `mydb`.`authorities` (
   `no` INT NOT NULL,
-  `authority` VARCHAR(100) NOT NULL);
+  `authority` VARCHAR(45) NOT NULL);
   
-insert into mydb.user (id, password, enabled) values ('admin','123',true);
-insert into mydb.user (id, password, enabled) values ('user','321',true);
+insert into mydb.users (username, password, enabled) values ('user','123',true);
+insert into mydb.users (username, password, enabled) values ('admin','456',true);
 
-insert into mydb.user_auth (no, authority) values (2,'ROLE_USER');
-insert into mydb.user_auth (no, authority) values (1,'ROLE_USER ROLE_ADMIN');
-
+insert into mydb.authorities (no, authority) values (1,'ROLE_USER');
+insert into mydb.authorities (no, authority) values (2,'ROLE_USER');
+insert into mydb.authorities (no, authority) values (2,'ROLE_ADMIN');

@@ -15,10 +15,21 @@
 		Forms : if csrf enabled, add <s:csrfInput/>
 		Secured jsp : update security tags
 		Logout : if csrf enabled, use post form
-	Database
-		http://goldenraccoon.tistory.com/entry/SPRING-SECURITY-DB-LOGIN
-		database-context.html : dataSource
-	Encryption
+	Database authentication
+		Concept
+			Security using data from database
+			Can be stacked with In-Memory model
+		Setup
+			database
+				user table : name, password, enabled + others
+				role table : name, role + others, (many role -> one user)
+			database-context.html
+				add dataSource
+			security-context.html
+				add <security:jdbc-user-service> to <security:authentication-provider>
+				users-by-username-query : name/id & password (used in login page) and enabled
+				authorities-by-username-query : name/id and authorities(multiple)
+	Encryption (later...)
 
 [Seoul Wiz]
 
