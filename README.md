@@ -10,6 +10,7 @@ JAVA Spring framework study
 * Import Settings [8](https://www.youtube.com/watch?v=9cDHggH0ENA&index=71&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 * AOP (Aspect oriented programming) [9](https://www.youtube.com/watch?v=2F8K9BLgvjE&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=72) [10](https://www.youtube.com/watch?v=x4qWZpDN444&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=73)
 * Spring MVC
+
 >* Basics [11](https://www.youtube.com/watch?v=6P9C3myUsrw&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=74)
 * Controller [12](https://www.youtube.com/watch?v=MDFEmeuTuv4&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=75)
 * Form data [13](https://www.youtube.com/watch?v=g4pTP69HrNw&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=76)
@@ -24,7 +25,10 @@ JAVA Spring framework study
 ##2. [(Java Brains)](https://javabrains.io/ "Java Brains") video [01-23](https://www.youtube.com/playlist?list=PLC97BDEFDCDD169D7) [24-35](https://www.youtube.com/playlist?list=PLE37064DE302862F8) [36-45](https://www.youtube.com/playlist?list=PL1A506B159E5BD13E), English
 
 * Introduction & Setup [1](https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=1) [2](https://www.youtube.com/watch?v=Z5gubdHLJIc&list=PLC97BDEFDCDD169D7&index=2) [3](https://www.youtube.com/watch?v=xlWwMSu5I70&index=3&list=PLC97BDEFDCDD169D7)
+* Dependency Injection
 
+>* BeanFactory [4](https://www.youtube.com/watch?v=7c6ZTF6cF88&index=4&list=PLC97BDEFDCDD169D7)
+* ApplicationContext [5](https://www.youtube.com/watch?v=ZxLaEovze3M&list=PLC97BDEFDCDD169D7&index=5)
 
 ##Further Study
 

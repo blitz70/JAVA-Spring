@@ -565,7 +565,7 @@
 				<beans:bean name="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
 					<beans:property name="transactionManager" ref="transactionManager"/>
 				</beans:bean>
-				<beans:bean name="dao" class="com.iamtek.myapp.dao.TicketDao">
+				<beans:bean name="dao" class="myapp.dao.TicketDao">
 					<beans:property name="template" ref="template" />
 					<beans:property name="transactionTemplate" ref="transactionTemplate" />
 				</beans:bean>
@@ -742,14 +742,14 @@
 				<!DOCTYPE mapper
 				    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-				<mapper namespace="com.iamtek.myapp.dao.IDao">
-					<select id="list" resultType="com.iamtek.myapp.dto.ContentDto">
+				<mapper namespace="myapp.dao.IDao">
+					<select id="list" resultType="myapp.dto.ContentDto">
 						SELECT * FROM mydb.board ORDER BY mId DESC
 					</select>
 					<insert id="write">
 						INSERT INTO mydb.board (mWriter, mContent) VALUES (#{param1}, #{param2})
 					</insert>
-					<select id="view" resultType="com.iamtek.myapp.dto.ContentDto">
+					<select id="view" resultType="myapp.dto.ContentDto">
 						SELECT * FROM mydb.board WHERE mId=#{param1}
 					</select>
 					<delete id="delete">

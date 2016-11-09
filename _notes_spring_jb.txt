@@ -1,2 +1,13 @@
-1-3. Concept
-    Interface, Factory pattern, Dependency Injection
+01-03. Concept
+    Interface
+    Container
+    Factory pattern
+    Dependency Injection
+
+04. BeanFactory
+    BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
+    config file at context path
+
+05. ApplicationContext
+    ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+    config file at class path
