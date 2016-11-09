@@ -1,0 +1,33 @@
+01. MyBatis(Multi Query) + Transaction
+	JDBC url : allow multi queries, must use &amp instead of &
+		useSSL=false&amp;allowMultiQueries=true
+	mapper xml : object parameter
+		INSERT INTO card (consumerId, amount) VALUES (#{consumerId}, #{amount});
+		INSERT INTO ticket (consumerId, countNum) VALUES (#{consumerId}, #{amount});
+
+02. Spring Security
+	Version update (4.1.3)
+		security-context.xml
+			<security:intercept-url> : update access, "ROLE_ADMIN" -> "hasRole('ROLE_ADMIN')"
+			<security:form-login> : update request parameters
+		Forms : if csrf enabled, add <s:csrfInput/>
+		Secured jsp : update security tags
+		Logout : if csrf enabled, use post form
+	Database authentication
+		Concept
+			Security using data from database
+			Can be stacked with In-Memory model
+		Setup
+			database
+				user table : name, password, enabled + others
+				role table : name, role + others, (many role -> one user)
+			database-context.html
+				add dataSource
+			security-context.html
+				add <security:jdbc-user-service> to <security:authentication-provider>
+				users-by-username-query : name/id & password (used in login page) and enabled
+				authorities-by-username-query : name/id and authorities(multiple)
+	Encryption (later...)
+
+[Seoul Wiz]
+

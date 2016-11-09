@@ -1,0 +1,770 @@
+1-2. Concept
+	Description
+		When object A needs objects B & C -> A depends on B & C
+			1 : A directly creates B & C
+			2 : B & C are created in advance somewhere(IOC container) then injected/inserted(DI method) into A
+	DI : Dependency Injection
+	IOC Container
+		IOC(Inversion of Control) container, spring container, bean container
+	Spring : DI + IOC
+		group of libraries that create and assemble logic parts
+		
+3-4. DI, Spring setting & setter method
+	Class : create required classes, must have setters for fields
+		private Calculator calculator;
+		private int firstNum;
+		private int secondNum;
+		public void setCalculator(Calculator calculator) {this.calculator = calculator;}
+		public void setFirstNum(int firstNum) {this.firstNum = firstNum;}
+		public void setSecondNum(int secondNum) {this.secondNum = secondNum;}
+	Bean : create & setup IOC container via config file
+		add required classes as bean to IOC container, set properties, variable naming IS important
+		1. create spring bean configuration file
+			src/main/resource : applicationCTX.xml
+		2. add class as bean
+			<bean id="calculator" class="kr.co.iamtek.Calculator" />
+		3. add properties via setters
+			<bean ...>
+				<property name="calculator" ref="calculator" />
+				<property name="firstNum" value="10" />
+				<property name="secondNum" value="2" />
+			</bean>
+	Use : get required class instances as beans from IOC container
+		String configLocation1 = "classpath:applicationCTX1.xml";
+		String configLocation2 = "classpath:applicationCTX2.xml";
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation1, configLocation2..);
+		MyCalculator myCalculator = ctx.getBean("myCalculator", MyCalculator.class);
+		ctx : IOC container
+		getBean : get the required bean(class instance) for use
+
+5. DI
+	constructor method
+		Class : create required classes, must have constructor with fields
+			private String name;private String gender;private String age;private String job;
+			public Person(String name, String gender, String age, String job) {}
+		Bean : Add bean properties via constructor (instead of setters)
+			<bean id="person2" class="kr.co.iamtek.Person">
+				<constructor-arg>
+					<value>김성규</value>
+				</constructor-arg>
+				<constructor-arg value="남성" />
+			</bean>
+			<bean id="personInfo1" class="kr.co.iamtek.PersonInfo">
+				<constructor-arg>
+					<ref bean="person1"/>
+				</constructor-arg>
+			</bean>
+			<bean id="personInfo2" class="kr.co.iamtek.PersonInfo">
+				<constructor-arg ref="person2" />
+			</bean>
+	DI advantages
+		one can change the behavior of an application using the bean config file with no java code change
+		
+6. DI, setting methods
+	XML (recommended)
+		1. Class
+		2.1 Bean : property+constructor method, applicationCTX.xml
+			<bean id="student1" class="kr.co.iamtek.Student">
+				<constructor-arg value="홍길동"/>							: constructor, primitive
+				<constructor-arg  value="10"/>
+				<constructor-arg>													: constructor, object
+					<list>
+						<value>수영</value>
+						<value>요리</value>
+					</list>
+				</constructor-arg>
+				<property name="height">										: setter, primitive
+					<value>187</value>
+				</property>
+				<property name="weight" value="84" />
+			</bean>
+			<bean id="studentInfo1" class="kr.co.iamtek.StudentInfo">
+				<property name="student">										:setter, object
+					<ref bean="student1"/>
+				</property>
+			</bean>
+		2.2. namespace method (register c p first), applicationCTX.xml 
+			<bean id="family" class="kr.co.iamtek.Familiy" c:papaName="홍아빠" c:mamaName="홍엄마" p:brotherName="홍언니">
+				<property name="brotherName" value="홍오빠"/>
+			</bean>
+		3. Use, Main.class
+			String config = "classpath:applicationCTX.xml";
+			AbstractApplicationContext ctx = new GenericXmlApplicationContext(config);
+	JAVA only
+		1. Class
+		2. Bean : ApplicationCTX.java
+			Create a class where method returns object, with annotation at class and methods
+			@Configuration
+			public class ApplicationCTX {
+				@Bean
+				public Student student1() {
+					return student;
+				}
+				@Bean
+				public Student student2() {
+					return student;
+				}
+			}
+		3. Use, Main.class
+			AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationCTX.class);
+	XML+ JAVA mixed
+		1. Class
+		2.1.Bean : XML (+ JAVA)
+			ApplicationCTX.java : create DI class
+			applicationCTX.xml : create DI xml, import java DI
+				namespace : add context
+				<context:annotation-config />
+				<bean class="kr.co.iamtek.ApplicationCTX" />
+		2.2 Bean : JAVA (+ XML)
+			applicationCTX.xml : create DI xml
+			ApplicationCTX.java : create DI class, import DI xml
+				@ImportResource("classpath:applicationCTX.xml")
+		3.1 Use, XML (+ JAVA), Main.class
+			String config1 = "classpath:applicationCTX.xml";
+			AbstractApplicationContext ctx = new GenericXmlApplicationContext(config1);
+		3.2 Use, JAVA (+ XML), Main.class
+			AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationCTX.class);
+
+7. Life cycle & Scope
+	Spring container life cycle
+		Create
+			GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+		Set
+			ctx.load("classpath:applicationCTX.xml");
+			ctx.refresh();
+		Use
+			Student student = ctx.getBean("student", Student.class);
+			...
+		Destroy
+			ctx.close();
+	Spring bean life cycle
+		Interface
+			start : implement InitializingBean, override afterPropertiesSet()
+			end : implement DisposableBean, override destroy()
+		Annotation
+			applicationCTX.xml : <context:annotation-config />
+			start method : @PostConstruct
+			end method :  @PreDestroy
+	Spring bean scope
+	
+8. Importing bean settings
+	Environment Object : import settings from environment
+		Objects
+			ctx1 = new GenericXmlApplicationContext();
+			env = ctx1.getEnvironment();
+			psrc= env.getPropertySources();
+		Set, adding to environment
+			psrc.addLast()
+		Get, getting from environment
+			env.getProperty()
+	Property file : import settings directly from file
+		Setting files : add to resources
+		XML : applicationCTX.xml
+			Namespaces : add context 
+				<context:property-placeholder location="classpath:admin.properties, classpath:subadmin.properties"/>
+			Property : import property values from setting files
+				<bean id="adminConnection" class="kr.co.iamtek.AdminConnection">
+					<property name="adminId" value="${admin.id}" />
+				</bean>
+		JAVA : applicationCTX.java
+			1. Get location of setting files
+				@Bean
+				public static PropertySourcesPlaceholderConfigurer propertySources() {	};
+			2. Import setting
+				@Value("${admin.id}")
+				private String adminId;
+			3. Set Bean
+				@Bean
+				public AdminConnection adminConnection() {};
+	Profile : import settings by selecting one from multiple bean config files
+		XML
+			1. Spring config files : ApplicationCTXDev.xml, ApplicationCTXRun.xml
+				add profile to <beans> : <beans profile="dev.">
+			2. Main class
+				Profile value : config = "dev" or "run"
+				GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+				ctx.getEnvironment().setActiveProfiles(config);   <- before loading container setting
+				ctx.load("classpath:ApplicationCTXDev.xml", "classpath:ApplicationCTXRun.xml");
+		JAVA
+			1. Annotated config classes : ApplicationCTXDev.java, ApplicationCTXRun.java
+				add profile annotation to class : @Profile("dev")
+			2. Main class
+				Profile value : config = "dev" or "run"
+				AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+				ctx.getEnvironment().setActiveProfiles(config);
+				ctx.register(ApplicationCTXDev.class, ApplicationCTXRun.class);
+				
+9-10. AOP, Aspect Oriented Programming
+	Concept : Divide code into core and common process, apply common process at core process as needed
+		Common
+			Aspect : Grouped set of common processes
+			Advice : each common process in an Aspect
+		Core
+			Joinpoint : core process where Advices(common processes) are inserted/applied (Spring : methods only)
+			Pointcut : exact point of Jointpoint(core process) where an Advice is applied
+		Weaving : application itself
+	Description
+		Spring framework
+			Joinpoint can only be methods, uses proxy method
+			Application
+				1. POM.XML : Set dependencies
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>1.7.4</version>
+					</dependency>
+				2. XML Schema, Annotation
+		Advice types : <aop:around>, @Around
+			Before : runs advice before method
+			AfterReturning : after method only without exception
+			AfterThrowing : after method only with exception
+			After : after method regardless of exception
+			Around : runs advice before and after method regardless of exception
+		AspectJ Poincut Expression Language
+			all : *		this : .		0+ : ..
+			Scope
+				execution : apply to methods, "execution(public void get*(..))"
+				within : apply to package.class methods, "within(kr.co.iamtek.*)"
+				bean : apply to bean methods, "bean(student)"
+			Ex
+				<aop:pointcut expression="within(kr.co.iamtek.*)" id="publicM"/>
+				@Pointcut("within(kr.co.iamtek.*)")
+			General
+	Apply methods
+		1. XML Schema
+			Advice class : class for common process
+				public class LogAop {
+					public Object loggerAop(ProceedingJoinPoint joinPoint) throws Throwable {
+						//before Pointcut
+						String signitureStr = joinPoint.getSignature().toShortString();
+						System.out.println(signitureStr + " started.");
+						long st = System.currentTimeMillis();
+						try {
+							Object obj = joinPoint.proceed();
+							return obj;
+						} finally {
+							//after Pointcut
+							long et = System.currentTimeMillis();
+							System.out.println(signitureStr + " ended, duration : "+ (et - st));
+						}
+					}
+					public void beforeAdvice(JoinPoint joinPoint) {
+						String signitureStr = joinPoint.getSignature().toShortString();
+						System.out.println(signitureStr + " beforeAdvice()");
+					}
+				}
+			Spring config file XML : Aspect settings
+				Namespaces : add aop
+				<bean id="logAop" class="kr.co.iamtek.LogAop" />
+				<aop:config>
+					<aop:aspect id="logger" ref="logAop">
+						<aop:pointcut expression="within(kr.co.iamtek.*)" id="publicM"/>
+						<aop:around pointcut-ref="publicM" method="loggerAop"/>
+					</aop:aspect>
+					<aop:aspect id="logger" ref="logAop">
+						<aop:pointcut id="publicM" expression="within(kr.co.iamtek.*)"  />
+						<aop:before pointcut-ref="publicM" method="beforeAdvice" />
+					</aop:aspect>
+				</aop:config>
+		2. Annotation @Aspect
+			Advice class with AOP annotation
+				@Aspect
+				public class LogAop {
+					@Pointcut("within(kr.co.iamtek.*)")
+					private void pointcutMethod() {
+					}
+					@Around("pointcutMethod()")		//using with @Pointcut
+					public Object loggerAop(ProceedingJoinPoint joinPoint) throws Throwable {
+						//before Pointcut
+						try {
+							Object obj = joinPoint.proceed();
+							return obj;
+						} finally {
+							//after Pointcut
+						}
+					}
+					@Before("within(kr.co.iamtek.*)")	//without @Pointcut
+					public void beforeAdvice(JoinPoint joinPoint) {
+						String signitureStr = joinPoint.getSignature().toShortString();
+						System.out.println(signitureStr + " beforeAdvice()");
+					}
+				}
+			Spring config file XML
+				Namespaces : add aop
+				<bean id="logAop" class="kr.co.iamtek.LogAop" />
+				<aop:aspectj-autoproxy />
+
+11. Spring MVC Basics
+	Overview
+		1. DispatcherServlet(auto) -> Controller
+		2. Controller <-> Model/ModelandView
+		3. Controller -> View
+	Structure
+		root : src/main/webapp
+		context : Package(p1.p2.p3.p4...)  p3 = context
+		web.xml : src/main/webapp/WEB-INF/web.xml
+			servlet setting & mapping, DispatcherServlet
+			spring container setting file path
+		servlet-context.xml : src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml
+			spring container setting
+			view file path
+			resource folder path
+			controller scan package
+		DispatcherServlet
+			gets client connection & pass it to controller
+		controller : /src/main/java/package
+		view : src/main/webapp/WEB-INF/views
+			prefix(/WEB-INF/views) + return(view name) + suffix(.jsp)
+	Resource folder
+		path : src/main/webapp/resources
+		new folder need to be registered in servlet-context.xml
+			
+12. Spring MVC Controller
+	Controller class
+		@Controller annotation : designate class as controller
+		@RequestMapping : map request path to request method
+			map path vs view name : starting with "/" not important
+		Implement request methods
+		Return view name
+		Ex
+			@Controller
+			public class MyController {
+				@RequestMapping("board/view")
+				public String view() {
+					...code...
+					return "board/view";
+				}
+			}
+	View data transfer
+		get Model(ModelAndView) object -> add data as attribute -> 	use attribute in jsp
+		Model
+			@RequestMapping("board/content")
+			public String content(Model model) {
+				model.addAttribute("id", 30);
+				return "board/content";
+			}
+		ModelAndView
+			@RequestMapping("board/reply")
+			public ModelAndView reply() {
+				ModelAndView mv = new ModelAndView();
+				mv.addObject("id", 30);
+				mv.setViewName("board/reply");
+				return mv;
+			}
+	Class @RequestMapping : path is added to method's path
+		@Controller
+		@RequestMapping("test")
+		class MyController2 {
+			@RequestMapping("/view")
+			public String view() {
+				return "/test/view";
+			}
+		}
+		
+13. Spring MVC Form data, getting data from client
+	1. HttpServletRequest class
+		@RequestMapping("board/confirm1")
+		public String confirm1(HttpServletRequest request, Model model) {
+			String id = request.getParameter("form_id");
+			...
+			model.addAttribute(...);
+			return "board/confirm";
+		}
+	2. @Request annotation
+		@RequestMapping("board/confirm2")
+		public String confirm2(@RequestParam("form_id") String id, ..., Model model) {
+			model.addAttribute(...);
+			return "board/confirm";
+		}
+	3. Data(Command) object, recommended
+		Need names in form, data object and view to be same
+		@RequestMapping("board/join2")
+		public String join2(Member member) {
+			return "board/join2";
+		}
+	@PathVariable
+		@RequestMapping("student/{studentId}")
+		public String getStudent(@PathVariable String studentId, Model model) {
+			model.addAttribute("studentId", studentId);
+			return "student";
+		}
+	
+14. Spring MVC @RequestMapping parameters
+	Get vs Post : choose which form method to process
+		@RequestMapping(method = RequestMethod.GET, value = "student1")
+	@ModelAttribute : rename data object
+		public String studentView(@ModelAttribute("studentInfo") StudentInformation studentInfo1) {}
+	redirect : passes a RequestMapping to another
+		@RequestMapping("confirmChk")
+		public String confirmChk(HttpServletRequest request, Model model) {
+			String id = request.getParameter("id");
+			if (id.equals("abc")) {
+				return "redirect:studentPass";	//goes to another RequestMapping
+			}
+			return "redirect:studentFail";
+		}
+		@RequestMapping("redirectURL1")
+		public String redirectURL1() {
+			return "redirect:http://localhost:8080/myproject/redirectURL1.jsp";	//goes to actual file
+		}
+	
+15. Spring MVC Validation
+	Concept
+		Method of checking form data at server side, instead of client side using javascript
+		Manual method is most flexible compared to ValidationUtils or Spring framework validation
+	Manual validation
+		1. Controller : 	implement method with appropriate arguments (data object, check result)
+			public String studentCreate1(Student student, BindingResult result) {
+				String view = "student/studentCreatePass";
+				StudentValidator validator = new StudentValidator();
+				validator.validate(student, result);
+				if (result.hasErrors()) {
+					view = "student/studentForm";
+				}
+				return view;
+			}
+		2. Validator class : implement Validator interface (check target, check logic)
+			public class StudentValidator implements Validator {
+				@Override
+				public boolean supports(Class<?> clazz) {
+					return Student.class.isAssignableFrom(clazz);
+				}
+				@Override
+				public void validate(Object target, Errors errors) {
+					Student student = (Student) target;
+					if (student.getId() == 0) {
+						errors.rejectValue("id", "error");
+					}
+				}
+			}
+	ValidationUtils class : premade checking, not flexible
+		public void validate(Object target, Errors errors) {
+			...
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "error");
+		}
+	Spring framework validation
+		Framework uses validation automatically
+		can mix with manual validation by separating controllers
+		1. add dependency, pom.xml
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>4.2.0.Final</version>
+			</dependency>
+		2. register validation class, @InitBinder
+			@InitBinder
+			protected void iniBinder(WebDataBinder binder) {
+				binder.setValidator(new StudentValidator());
+			}
+		3. mark class to check, @Valid
+			@RequestMapping("studentCreate2")	//framework validation
+			public String studentCreate2(@Valid Student student, BindingResult result) {
+				String view = "student/studentCreatePass";
+				if (result.hasErrors()) {
+					view = "student/studentForm";
+				}
+				return view;
+			}
+
+16-20. Spring MVC Project, BBS
+	16. DB1(setup), Localization(web.xml)
+	17. Package, Controller, Command interface & class
+	18. List, Write, Content, DB2(JDBC, DBCP), JSTL
+	19. Modify, Delete 
+	20. Reply
+	Localization(web.xml)
+		<filter>
+			<filter-name>encodingFilter</filter-name>
+			<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+			<init-param>
+				<param-name>encoding</param-name>
+				<param-value>UTF-8</param-value>
+			</init-param>
+			<init-param>
+				<param-name>forceEncoding</param-name>
+				<param-value>true</param-value>
+			</init-param>
+		</filter>
+		<filter-mapping>
+			<filter-name>encodingFilter</filter-name>
+			<url-pattern>/*</url-pattern>
+		</filter-mapping>
+	Database
+		1. JDBC (Maven dependency, pom.xml)
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.39</version>
+			</dependency>
+		2. DBCP (tomcat, context.xml)
+			<Resource
+				auth="Container" type="javax.sql.DataSource" maxActive="50" maxWait="1000"
+				name="jdbc/MySQL" driverClassName="com.mysql.jdbc.Driver" 	url="jdbc:mysql://localhost:3306/mydb"
+				username="blitz" password="mysql"
+			/>
+	DAO
+		Fields
+			private DataSource dataSource;
+			private Connection connection;
+			private PreparedStatement preparedStatement;
+			private ResultSet resultSet;
+			private String sql;
+		Constructor
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/MySQL");
+		Methods
+			connection = dataSource.getConnection();
+			sql = "...?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, bId);
+			...
+			preparedStatement.executeUpdate();	//executeQuery();
+			...
+			close fields
+	
+21. Spring MVC Spring JDBC (hard!)
+	Concept
+		Reduce & simplify code compared to normal JDBC
+	Setup
+		1. Maven dependency (pom.xml), mysql
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>4.1.4.RELEASE</version>
+			</dependency>
+		2. DI bean (servlet-context.xml)
+			<beans:bean name="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+				<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+				<beans:property name="url" value="jdbc:mysql://localhost:3306/mydb?useSSL=false" />
+				<beans:property name="username" value="blitz"/>
+				<beans:property name="password" value="mysql"/>
+			</beans:bean>
+			<beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">
+				<beans:property name="dataSource" ref="driverManagerDataSource"/>
+			</beans:bean>
+		3. JdbcTemplate
+			Load(@Autowired) from Controller and make it global
+		4. DAO
+			use JdbcTemplate
+			Select : many(template.query), one(template.queryForObject) 
+			Insert, Update, Delete : template.update() 
+		5. Not needed
+			DBCP (tomcat, context.xml)
+
+22-24. Spring MVC Transaction (hard!)
+	Concept : method of treating series of logics as a grouped unit
+		Commit : when all logics in the unit are performed normally
+		Rollback : if any of the logic gives an error all logics in the unit are cancelled
+	MySQL Constraint : doesn't work, use trigger before insert&update
+	Method
+		1. transactionManager
+		2. transactionTemplate (recommended)
+			1. Spring JDBC
+			2. DI (servlet-context.xml)
+				dataSource, template, transactionManager
+				<beans:bean name="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+					<beans:property name="transactionManager" ref="transactionManager"/>
+				</beans:bean>
+				<beans:bean name="dao" class="com.iamtek.myapp.dao.TicketDao">
+					<beans:property name="template" ref="template" />
+					<beans:property name="transactionTemplate" ref="transactionTemplate" />
+				</beans:bean>
+			3. DAO
+				TransactionTemplate transactionTemplate;
+				try {
+					transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+						@Override
+						protected void doInTransactionWithoutResult(TransactionStatus status) {
+							Logic1;
+							Logic2;
+							...
+						}
+					});
+				} catch {
+				}
+	Transaction Propagation
+		Concept
+			When transactions are stacked determines how transactions are performed
+			used in transactionTemplate(?)
+		Types
+			PROPAGATION_
+				REQUIRED(0) : default, all
+				SUPPORTS(1) : follow parent
+				MANDATORY(2) : parent must have transaction
+				REQUIRES_NEW(3) : independent transaction
+				NOT_SUPPORTED(4) : no transaction
+				NEVER(5) : parent must have no transaction
+		DI (servlet-context.xml)
+			<beans:bean name="transactionTemplate1" class="org.springframework.transaction.support.TransactionTemplate">
+				<beans:property name="transactionManager" ref="transactionManager"/>
+				<beans:property name="propagationBehavior" value="0"/>
+			</beans:bean>
+			<beans:bean name="transactionTemplate2" class="org.springframework.transaction.support.TransactionTemplate">
+				<beans:property name="transactionManager" ref="transactionManager"/>
+				<beans:property name="propagationBehavior" value="0"/>
+			</beans:bean>
+
+25-27. Spring MVC Security
+	Concept
+		Add very high level security to project
+		Security using database (check)
+	Setup (pom.xml, web.xml)
+		0. Default settings
+			Version (pom.xml)
+			Localization filter(web.xml)
+		1. Security library (pom.xml)
+			Add maven dependencies
+				spring-security-config, core, web, taglibs
+		2. Security settings
+			Add security file
+				security-context.xml
+			Register security file (web.xml)
+				<context-param>
+					<param-name>contextConfigLocation</param-name>
+					<param-value>
+						/WEB-INF/spring/root-context.xml
+						/WEB-INF/spring/appServlet/security-context.xml
+					</param-value>
+				</context-param>
+			Register security filter (web.xml)
+				<filter>
+					<filter-name>springSecurityFilterChain</filter-name>
+					<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+				</filter>
+				<filter-mapping>
+			        <filter-name>springSecurityFilterChain</filter-name>
+					<url-pattern>/*</url-pattern>
+				</filter-mapping>
+			Change dispatcher path (web.xml)
+				<servlet-mapping>
+					<servlet-name>appServlet</servlet-name>
+					<url-pattern>*.html</url-pattern>
+				</servlet-mapping>
+	Use (security-context.xml, others...)
+		0. 	Controller, jsp, html
+		1. In-Memory authorization, auto generated page
+			Add authentication paths (security-context.xml)
+				<security:http auto-config="true">
+					<security:intercept-url pattern="/login.html*" access="ROLE_USER"/>
+					<security:intercept-url pattern="/welcome.html*" access="ROLE_ADMIN"/>
+				</security:http>
+			Add authentication info (security-context.xml)
+				<security:authentication-manager>
+					<security:authentication-provider>
+						<security:user-service>
+							<security:user name="user" password="123" authorities="ROLE_USER"/>
+							<security:user name="admin" password="123" authorities="ROLE_USER, ROLE_ADMIN"/>
+						</security:user-service>
+					</security:authentication-provider>
+				</security:authentication-manager>
+		2. Custom authorization, custom page
+			Login
+				Add custom page paths (security-context.xml)
+					<security:http auto-config="true">
+						<security:form-login login-page="/loginForm.html"/>
+						...
+					</security:http>
+				Login page (loginForm.html) 
+					<form action="j_spring_security_check" method="post">
+						ID : <input type="text" name="j_username" id="" /><br>
+						PW : <input type="password" name="j_password" id="" /><br>
+						<input type="submit" value="LOGIN" /><br>
+					</form>
+			Login with fail message, JSTL & EL
+				Add custom page paths (security-context.xml)
+					<security:http auto-config="true">
+						<security:form-login login-page="/loginForm.html" authentication-failure-url="/loginForm.html?error"/>
+						...
+					</security:http>
+				Login page (loginForm.html) 
+					<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+					<c:url value="j_spring_security_check" var="loginUrl"/>
+					<form action="${loginUrl}" method="post">
+						<c:if test="${param.error != NULL}">
+							<p>
+							Login ERROR!<br>
+							<c:if test="${SPRING_SECURITY_LAST_EXCEPTION != NULL}">
+								Message : <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+							</c:if>
+							</p>
+						</c:if>
+						ID : <input type="text" name="j_username" id="" /><br>
+						PW : <input type="password" name="j_password" id="" /><br>
+						<input type="submit" value="LOGIN" /><br>
+					</form>
+			Login result (login.jsp)
+				<c:choose>
+					<c:when test="${pageContext.request.userPrincipal != NULL}">
+						<p>Login : ${pageContext.request.userPrincipal.name}</p>
+					</c:when>
+					<c:otherwise>
+						<p>is Log-Out</p>
+					</c:otherwise>
+				</c:choose>
+				<a href="${pageContext.request.contextPath}/j_spring_security_logout">Log out</a><br>
+			Security Tag Library
+				Login result (login.jsp) 
+					<%@ taglib uri="http://www.springframework.org/security/tags" prefix="s" %>
+					<s:authorize ifAnyGranted="ROLE_USER">
+						<p>Login : <s:authentication property="name"/></p>
+					</s:authorize>
+					<s:authorize ifNotGranted="ROLE_USER">
+						<p>is Log-Out</p>
+					</s:authorize>
+
+28-30. Spring MVC MyBatis
+	Concept
+		Reduce & simplify code compared to spring JDBC
+	Setup (pom.xml, web.xml)
+		0. Default settings
+			Version (pom.xml)
+			Filter : Encoding (web.xml)
+		1. Maven dependency (pom.xml)
+			mybatis(3.4.1), mybatis-spring(1.3.0)
+		2. Spring settings (servlet-context.xml)
+			dataSource
+			<beans:bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+				<beans:property name="dataSource" ref="dataSource" />
+				<beans:property name="mapperLocations" value="classpath:com/iamtek/myapp/dao/mapper/*.xml"/>
+			</beans:bean>
+			<beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+				<beans:constructor-arg index="0" ref="sqlSessionFactoryBean"/>
+			</beans:bean>
+			take care of mapperLocation value
+	Use
+		1. MyBatis Mapping
+			Mapper Interface (IDao.java)
+				public ArrayList<ContentDto> list();
+				public void write(String writer, String content);
+				public ContentDto view(String id);
+				public void delete(String id);
+			Mapper XML (IDao.xml)
+				<!DOCTYPE mapper
+				    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	    			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.iamtek.myapp.dao.IDao">
+					<select id="list" resultType="com.iamtek.myapp.dto.ContentDto">
+						SELECT * FROM mydb.board ORDER BY mId DESC
+					</select>
+					<insert id="write">
+						INSERT INTO mydb.board (mWriter, mContent) VALUES (#{param1}, #{param2})
+					</insert>
+					<select id="view" resultType="com.iamtek.myapp.dto.ContentDto">
+						SELECT * FROM mydb.board WHERE mId=#{param1}
+					</select>
+					<delete id="delete">
+						DELETE FROM mydb.board WHERE mId=#{param1}
+					</delete>
+				</mapper>
+		2. Controller
+			Load bean
+				@Autowired
+				private SqlSession sqlsession;
+			RM method
+				@RequestMapping("/list")
+				public String list(Model model) {
+					System.out.println("list");
+					IDao dao = sqlsession.getMapper(IDao.class);
+					model.addAttribute("list", dao.list());
+					return "list";
+				}
