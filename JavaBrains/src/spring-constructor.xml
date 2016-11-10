@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+    <bean id="triangle1" class="com.iamtek.constructor.Triangle">
+        <constructor-arg value="Equilateral"/>
+    </bean>
+    <bean id="triangle2" class="com.iamtek.constructor.Triangle">
+        <constructor-arg value="Equilateral"/>
+        <constructor-arg value="20"/>
+    </bean>
+    <bean id="triangle3" class="com.iamtek.constructor.Triangle">
+        <constructor-arg type="java.lang.String" value="30"/>
+    </bean>
+    <bean id="triangle4" class="com.iamtek.constructor.Triangle">
+        <constructor-arg index="0" value="Equilateral"/>
+        <constructor-arg index="1" value="40"/>
+    </bean>
+</beans>
+

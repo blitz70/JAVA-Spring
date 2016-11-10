@@ -5,9 +5,31 @@
     Dependency Injection
 
 04. BeanFactory
-    BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
-    config file at context path
+    Configuration file : context path
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        <beans><bean id="triangle" class="com.iamtek.shapes.Triangle" /></beans>
+    Code
+        BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
 
 05. ApplicationContext
-    ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-    config file at class path
+    Inject object : have field with setter methods
+    Configuration file : class path
+        <bean><property name="type" value="Equilateral" /></bean>
+    Code
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+
+06. Constructor Injection
+    Inject object : have constructors with fields
+    Configuration file
+        <bean>
+            <constructor-arg index="field position" type="field type" value="field value"/>
+            ...
+        </bean>
+
+07. Object Injection
+    Configuration file
+        <bean>
+            <property name="" ref="name of object"/>
+            ...
+        </bean>

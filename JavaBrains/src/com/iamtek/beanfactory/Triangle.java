@@ -1,4 +1,4 @@
-package com.iamtek.shapes;
+package com.iamtek.beanfactory;
 
 public class Triangle {
 
@@ -13,7 +13,7 @@ public class Triangle {
     }
 
     public void draw() {
-        System.out.println(this.getType() + " Triangle drawn");
+        System.out.println("Triangle drawn");
     }
 
 }

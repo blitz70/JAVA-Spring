@@ -29,6 +29,8 @@ JAVA Spring framework study
 
 >* BeanFactory [4](https://www.youtube.com/watch?v=7c6ZTF6cF88&index=4&list=PLC97BDEFDCDD169D7)
 * ApplicationContext [5](https://www.youtube.com/watch?v=ZxLaEovze3M&list=PLC97BDEFDCDD169D7&index=5)
+* Constructor Injection [6](https://www.youtube.com/watch?v=IOZzxmJVus0&index=6&list=PLC97BDEFDCDD169D7)
+* Injecting Objects [7](https://www.youtube.com/watch?v=g15RcFyEcrk&list=PLC97BDEFDCDD169D7&index=7)
 
 ##Further Study
 
