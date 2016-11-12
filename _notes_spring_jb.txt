@@ -1,3 +1,5 @@
+[Java Brains]
+
 01-03. Concept
     Interface
     Container
@@ -24,12 +26,28 @@
     Configuration file
         <bean>
             <constructor-arg index="field position" type="field type" value="field value"/>
-            ...
         </bean>
 
 07. Object Injection
     Configuration file
-        <bean>
-            <property name="" ref="name of object"/>
-            ...
+        <bean id="triangle" class="com.iamtek.objectinjection.Triangle">
+            <property name="pointA" ref="pointZero"/>
         </bean>
+
+08.
+    Inner Bean
+        <bean id="triangle" class="com.iamtek.innerbean.Triangle">
+            <property name="pointB">
+                <bean class="com.iamtek.innerbean.Point">
+                    <property name="x" value="-25"/>
+                    <property name="y" value="0"/>
+                </bean>
+            </property>
+        </bean>
+    Bean Id, Name, Alias
+        Id : must be unique(xml validate), can't use special characters
+            Reference bean by id : <ref local="pointZero"/>
+        Name : can have multiple within page, can use special character, no space
+            <bean id="triangle" name="NameOfTriangle!" class="com.iamtek.innerbean.Triangle">
+        Alias : assign name to bean
+            <alias name="triangle" alias="[Alias Of Triangle!]"/>

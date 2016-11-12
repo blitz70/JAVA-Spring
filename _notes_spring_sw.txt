@@ -1,3 +1,5 @@
+[Seoul Wiz]
+
 1-2. Concept
 	Description
 		When object A needs objects B & C -> A depends on B & C

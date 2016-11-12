@@ -32,6 +32,9 @@ JAVA Spring framework study
 * Constructor Injection [6](https://www.youtube.com/watch?v=IOZzxmJVus0&index=6&list=PLC97BDEFDCDD169D7)
 * Injecting Objects [7](https://www.youtube.com/watch?v=g15RcFyEcrk&list=PLC97BDEFDCDD169D7&index=7)
 
+* Inner Beans, Alias [8](https://www.youtube.com/watch?v=TW51XsixMqA&list=PLC97BDEFDCDD169D7&index=8)
+
+
 ##Further Study
 
 * MyBatis (Multi SQL) + Transaction [01]

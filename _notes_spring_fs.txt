@@ -1,3 +1,5 @@
+[Further Study]
+
 01. MyBatis(Multi Query) + Transaction
 	JDBC url : allow multi queries, must use &amp instead of &
 		useSSL=false&amp;allowMultiQueries=true
