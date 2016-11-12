@@ -116,4 +116,15 @@
             <bean id="pointB">...</bean>
             <bean id="pointC">...</bean>
 
+11. Bean Scopes
+    Singleton : Default, bean only created once per container at container initialization
+    Prototype : New bean created with every request or reference
+    Web-aware
+        Request : New bean per servlet request
+        Session : New bean per session
+        Global Session : New bean per global HTTP session (portlet context)
+    <bean scope="prototype"/>
 
+12. Context Aware
+    ApplicationContextAware interface : object gets container info
+    BeanNameAware interface : object gets it's bean name

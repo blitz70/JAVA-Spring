@@ -38,6 +38,12 @@ JAVA Spring framework study
 * Collections [9](https://www.youtube.com/watch?v=MgYURkcYeDQ&list=PLC97BDEFDCDD169D7&index=9)
 * Autowiring [10](https://www.youtube.com/watch?v=suiEGbKf21g&list=PLC97BDEFDCDD169D7&index=10)
 
+* Bean Scopes & Life Cycles
+
+>* Concept [11](https://www.youtube.com/watch?v=NnNvDknQJt0&index=11&list=PLC97BDEFDCDD169D7)
+* ApplicationContextAware [12](https://www.youtube.com/watch?v=WUqyoH_G4Ko&list=PLC97BDEFDCDD169D7&index=12)
+
+
 ##Further Study
 
 * MyBatis (Multi SQL) + Transaction [01]
