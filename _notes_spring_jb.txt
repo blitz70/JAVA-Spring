@@ -1,71 +1,119 @@
 [Java Brains]
 
 01-03. Concept
+
     Interface
     Container
     Factory pattern
     Dependency Injection
 
-04. BeanFactory
-    Configuration file : context path
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
-        <beans><bean id="triangle" class="com.iamtek.shapes.Triangle" /></beans>
-    Code
-        BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
+04-10. Dependency Injection (XML configuration)
 
-05. ApplicationContext
-    Inject object : have field with setter methods
-    Configuration file : class path
-        <bean><property name="type" value="Equilateral" /></bean>
-    Code
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+    04. Concept
+        Register object to factory container, spring.xml (XML configuration)
+            <?xml version="1.0" encoding="UTF-8"?>
+            <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+            <beans>
+                <bean id="triangle" class="com.iamtek.shapes.Triangle"/>
+            </beans>
+        Get object from container when needed
+            ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+            Triangle triangle = (Triangle) context.getBean("triangle");
 
-06. Constructor Injection
-    Inject object : have constructors with fields
-    Configuration file
-        <bean>
-            <constructor-arg index="field position" type="field type" value="field value"/>
-        </bean>
-
-07. Object Injection
-    Configuration file
-        <bean id="triangle" class="com.iamtek.objectinjection.Triangle">
-            <property name="pointA" ref="pointZero"/>
-        </bean>
-
-08.
-    Inner Bean
-        <bean id="triangle" class="com.iamtek.innerbean.Triangle">
-            <property name="pointB">
-                <bean class="com.iamtek.innerbean.Point">
-                    <property name="x" value="-25"/>
-                    <property name="y" value="0"/>
+    Injection Method
+        05. Setter Method : Object have field with setter methods
+            Object
+                public class Triangle {
+                    private String type;
+                    public void setType(String type) {
+                        this.type = type;
+                    }
+                    ...
+                }
+            Container
+                <bean>
+                    <property name="field name" value="field value" />
                 </bean>
-            </property>
-        </bean>
-    Bean Id, Name, Alias
-        Id : must be unique(xml validate), can't use special characters
-            Reference bean by id : <ref local="pointZero"/>
-        Name : can have multiple within page, can use special character, no space
-            <bean id="triangle" name="NameOfTriangle!" class="com.iamtek.innerbean.Triangle">
-        Alias : assign name to bean
-            <alias name="triangle" alias="[Alias Of Triangle!]"/>
+        06. Constructor Method : Object have constructors with fields
+            Object
+                public class Triangle {
+                    private String type;
+                    private int height;
+                    public Triangle(String type, int height) {
+                        this.type = type;
+                        this.height = height;
+                    }
+                    ...
+                }
+            Container
+                <bean>
+                    <constructor-arg index="field position" type="field type" value="field value"/>
+                </bean>
 
-09. Collections
-    Inject object
-        public class Triangle {
-            private List<Point> points;
-            ...
-        }
-    Configuration file
-        <bean id="triangle" class="com.iamtek.collections.Triangle">
-            <property name="points">
-                <list>
-                    <ref local="pointZero"/>
-                    <ref local="point2"/>
-                    <ref local="point3"/>
-                </list>
-            </property>
-        </bean>
+    07. Object Injection : Object have object as field members
+        Object
+            public class Triangle {
+                private Point PointA;
+                private Point PointB;
+                private Point PointC;
+                ...
+            }
+            public class Point {
+                private int x;
+                private int y;
+                ...
+            }
+        Container
+            <bean id="triangle" class="com.iamtek.objectinjection.Triangle">
+                <property name="pointA" ref="pointZero"/>
+            </bean>
+            <bean id="pointZero" class="com.iamtek.objectinjection.Point">
+                <property name="x" value="0"/>
+                <property name="y" value="0"/>
+            </bean>
+
+    08. Inner Bean, Alias
+        Inner Bean injection
+            <bean id="triangle" class="com.iamtek.innerbean.Triangle">
+                <property name="pointB">
+                    <bean class="com.iamtek.innerbean.Point">
+                        <property name="x" value="-25"/>
+                        <property name="y" value="0"/>
+                    </bean>
+                </property>
+            </bean>
+        Bean Id, Name, Alias
+            Id : must be unique(xml validate), can't use special characters
+                Reference bean by id : <ref local="pointZero"/>
+            Name : can have multiple within page, can use special character, no space
+                <bean id="triangle" name="NameOfTriangle!" class="com.iamtek.innerbean.Triangle">
+            Alias : assign name to bean
+                <alias name="triangle" alias="[Alias Of Triangle!]"/>
+
+    09. Collections : Object have collections object as field members
+        Object
+            public class Triangle {
+                private List<Point> points;
+                ...
+            }
+        Container
+            <bean id="triangle" class="com.iamtek.collections.Triangle">
+                <property name="points">
+                    <list>
+                        <ref local="pointZero"/>
+                        <ref local="point2"/>
+                        <ref local="point3"/>
+                    </list>
+                </property>
+            </bean>
+
+    10. Autowiring
+        if bean name is same as member name can use autowire="byName"
+        Manual wiring is recommended (clarity, debugging)
+        Container
+            <bean id="triangle" class="com.iamtek.autowire.Triangle" autowire="byName" />
+            <bean id="pointA">...</bean>
+            <bean id="pointB">...</bean>
+            <bean id="pointC">...</bean>
+
 

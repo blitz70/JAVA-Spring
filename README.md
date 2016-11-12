@@ -24,17 +24,19 @@ JAVA Spring framework study
 
 ##2. [(Java Brains)](https://javabrains.io/ "Java Brains") video [01-23](https://www.youtube.com/playlist?list=PLC97BDEFDCDD169D7) [24-35](https://www.youtube.com/playlist?list=PLE37064DE302862F8) [36-45](https://www.youtube.com/playlist?list=PL1A506B159E5BD13E), English
 
-* Introduction & Setup [1](https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=1) [2](https://www.youtube.com/watch?v=Z5gubdHLJIc&list=PLC97BDEFDCDD169D7&index=2) [3](https://www.youtube.com/watch?v=xlWwMSu5I70&index=3&list=PLC97BDEFDCDD169D7)
-* Dependency Injection
+* Introduction
 
->* BeanFactory [4](https://www.youtube.com/watch?v=7c6ZTF6cF88&index=4&list=PLC97BDEFDCDD169D7)
-* ApplicationContext [5](https://www.youtube.com/watch?v=ZxLaEovze3M&list=PLC97BDEFDCDD169D7&index=5)
-* Constructor Injection [6](https://www.youtube.com/watch?v=IOZzxmJVus0&index=6&list=PLC97BDEFDCDD169D7)
-* Injecting Objects [7](https://www.youtube.com/watch?v=g15RcFyEcrk&list=PLC97BDEFDCDD169D7&index=7)
+>* Concept [1](https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=1) [3](https://www.youtube.com/watch?v=xlWwMSu5I70&index=3&list=PLC97BDEFDCDD169D7)
+* Setup [2](https://www.youtube.com/watch?v=Z5gubdHLJIc&list=PLC97BDEFDCDD169D7&index=2)
 
-* Inner Beans, Alias [8](https://www.youtube.com/watch?v=TW51XsixMqA&list=PLC97BDEFDCDD169D7&index=8)
+* Dependency Injection (XML configuration)
+
+>* Concept [4](https://www.youtube.com/watch?v=7c6ZTF6cF88&index=4&list=PLC97BDEFDCDD169D7)
+* Injection Methods, Setter & Constructor [5](https://www.youtube.com/watch?v=ZxLaEovze3M&list=PLC97BDEFDCDD169D7&index=5) [6](https://www.youtube.com/watch?v=IOZzxmJVus0&index=6&list=PLC97BDEFDCDD169D7)
+* Object Injection [7](https://www.youtube.com/watch?v=g15RcFyEcrk&list=PLC97BDEFDCDD169D7&index=7)
+* Inner Bean, Alias [8](https://www.youtube.com/watch?v=TW51XsixMqA&list=PLC97BDEFDCDD169D7&index=8)
 * Collections [9](https://www.youtube.com/watch?v=MgYURkcYeDQ&list=PLC97BDEFDCDD169D7&index=9)
-
+* Autowiring [10](https://www.youtube.com/watch?v=suiEGbKf21g&list=PLC97BDEFDCDD169D7&index=10)
 
 ##Further Study
 
