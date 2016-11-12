@@ -51,3 +51,21 @@
             <bean id="triangle" name="NameOfTriangle!" class="com.iamtek.innerbean.Triangle">
         Alias : assign name to bean
             <alias name="triangle" alias="[Alias Of Triangle!]"/>
+
+09. Collections
+    Inject object
+        public class Triangle {
+            private List<Point> points;
+            ...
+        }
+    Configuration file
+        <bean id="triangle" class="com.iamtek.collections.Triangle">
+            <property name="points">
+                <list>
+                    <ref local="pointZero"/>
+                    <ref local="point2"/>
+                    <ref local="point3"/>
+                </list>
+            </property>
+        </bean>
+
