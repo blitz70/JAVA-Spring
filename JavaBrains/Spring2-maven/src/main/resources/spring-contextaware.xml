@@ -3,19 +3,19 @@
 
 <beans>
 
-    <bean id="triangle" class="com.iamtek.spring2.contextaware.Triangle"/>
+    <bean id="triangle" class="com.iamtek.contextaware.Triangle"/>
 
-    <bean id="pointZero" class="com.iamtek.spring2.contextaware.Point">
+    <bean id="pointZero" class="com.iamtek.contextaware.Point">
         <property name="x" value="0"/>
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="point2" class="com.iamtek.spring2.contextaware.Point" scope="prototype">
+    <bean id="point2" class="com.iamtek.contextaware.Point" scope="prototype">
         <property name="x" value="-20"/>
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="point3" class="com.iamtek.spring2.contextaware.Point" scope="prototype">
+    <bean id="point3" class="com.iamtek.contextaware.Point" scope="prototype">
         <property name="x" value="0"/>
         <property name="y" value="20"/>
     </bean>

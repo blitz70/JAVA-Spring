@@ -1,4 +1,4 @@
-package com.iamtek.spring2.contextaware;
+package com.iamtek.contextaware;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
@@ -44,15 +44,14 @@ public class Triangle implements ApplicationContextAware, BeanNameAware{
         System.out.println("Point C(" + this.getPointC().getX() + ", " + this.getPointC().getY() +")");
     }
 
-    @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         this.context = context;
+        System.out.println("Get points from context");
         this.setPointA((Point) context.getBean("pointZero"));
         this.setPointB((Point) context.getBean("point2"));
         this.setPointC((Point) context.getBean("point3"));
     }
 
-    @Override
     public void setBeanName(String name) {
         this.name = name;
         System.out.println("Bean name is : " + this.name);

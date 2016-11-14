@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+    <bean id="parenttriangle" class="com.iamtek.beandefinherit.Triangle">
+        <property name="pointA" ref="pointA"/>
+    </bean>
+
+     <bean id="triangle1" class="com.iamtek.beandefinherit.Triangle" parent="parenttriangle">
+        <property name="pointB" ref="pointB"/>
+        <property name="pointC" ref="pointC"/>
+    </bean>
+
+    <bean id="triangle2" class="com.iamtek.beandefinherit.Triangle" parent="parenttriangle">
+        <property name="pointB" ref="pointB"/>
+    </bean>
+
+    <bean id="parenttriangle2" class="com.iamtek.beandefinherit.Triangle2" abstract="true">
+        <property name="points">
+            <list>
+                <ref bean="pointA"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="triangle3" class="com.iamtek.beandefinherit.Triangle2" parent="parenttriangle2">
+        <property name="points">
+            <list merge="true">
+                <ref bean="pointB"/>
+                <ref bean="pointC"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="pointA" class="com.iamtek.beandefinherit.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="pointB" class="com.iamtek.beandefinherit.Point" scope="prototype">
+        <property name="x" value="-20"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="pointC" class="com.iamtek.beandefinherit.Point" scope="prototype">
+        <property name="x" value="0"/>
+        <property name="y" value="20"/>
+    </bean>
+
+</beans>
+
+
+

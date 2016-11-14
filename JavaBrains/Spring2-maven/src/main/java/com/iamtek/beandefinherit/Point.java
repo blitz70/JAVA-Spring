@@ -1,4 +1,4 @@
-package com.iamtek.spring2.contextaware;
+package com.iamtek.beandefinherit;
 
 public class Point {
 

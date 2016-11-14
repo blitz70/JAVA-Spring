@@ -2,7 +2,7 @@
 JAVA Spring framework study
 <hr/>
 
-##1. [(Seoul Wiz)](https://www.youtube.com/user/WizcenterSeoul/featured "Seoul Wiz") [video 64-93](https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9), Korean
+##1. [(Seoul Wiz)](https://www.youtube.com/user/WizcenterSeoul/featured "Seoul Wiz") [video 64-93](https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9), Korean, Eclipse
 
 * Introduction & Setup [1](https://www.youtube.com/watch?v=CsOrR-4nH-s&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=64) [2](https://www.youtube.com/watch?v=xuygR0rucms&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=65)
 * DI (Dependency Injection) [3](https://www.youtube.com/watch?v=bZjUUJM_ZqA&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=66) [4](https://www.youtube.com/watch?v=Jwns7YqAg4I&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=67) [5](https://www.youtube.com/watch?v=wqHBAmIZcvg&index=68&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9) [6](https://www.youtube.com/watch?v=MabPKw0HapE&index=69&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
@@ -22,14 +22,14 @@ JAVA Spring framework study
 * Security [25](https://www.youtube.com/watch?v=_pMwwaHnzj4&index=88&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9) [26](https://www.youtube.com/watch?v=ygRCSlF_B_E&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=89) [27](https://www.youtube.com/watch?v=5tbVE1nOGdk&index=90&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9)
 * MyBatis [28](https://www.youtube.com/watch?v=sTfgANm41LQ&index=91&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9) [29](https://www.youtube.com/watch?v=Lx5KrCP2nVQ&index=92&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9) [30](https://www.youtube.com/watch?v=qVXIC2P1tuU&list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9&index=93)
 
-##2. [(Java Brains)](https://javabrains.io/ "Java Brains") video [01-23](https://www.youtube.com/playlist?list=PLC97BDEFDCDD169D7) [24-35](https://www.youtube.com/playlist?list=PLE37064DE302862F8) [36-45](https://www.youtube.com/playlist?list=PL1A506B159E5BD13E), English
+##2. [(Java Brains)](https://javabrains.io/ "Java Brains") video [01-23](https://www.youtube.com/playlist?list=PLC97BDEFDCDD169D7) [24-35](https://www.youtube.com/playlist?list=PLE37064DE302862F8) [36-45](https://www.youtube.com/playlist?list=PL1A506B159E5BD13E), English, IntelliJ
 
 * Introduction
 
 >* Concept [1](https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=1) [3](https://www.youtube.com/watch?v=xlWwMSu5I70&index=3&list=PLC97BDEFDCDD169D7)
 * Setup [2](https://www.youtube.com/watch?v=Z5gubdHLJIc&list=PLC97BDEFDCDD169D7&index=2)
 
-* Dependency Injection (XML configuration)
+* Dependency Injection
 
 >* Concept [4](https://www.youtube.com/watch?v=7c6ZTF6cF88&index=4&list=PLC97BDEFDCDD169D7)
 * Injection Methods, Setter & Constructor [5](https://www.youtube.com/watch?v=ZxLaEovze3M&list=PLC97BDEFDCDD169D7&index=5) [6](https://www.youtube.com/watch?v=IOZzxmJVus0&index=6&list=PLC97BDEFDCDD169D7)
@@ -38,10 +38,11 @@ JAVA Spring framework study
 * Collections [9](https://www.youtube.com/watch?v=MgYURkcYeDQ&list=PLC97BDEFDCDD169D7&index=9)
 * Autowiring [10](https://www.youtube.com/watch?v=suiEGbKf21g&list=PLC97BDEFDCDD169D7&index=10)
 
-* Bean Scopes & Life Cycles
+* Bean Scopes & Life Cycles (with Maven)
 
 >* Concept [11](https://www.youtube.com/watch?v=NnNvDknQJt0&index=11&list=PLC97BDEFDCDD169D7)
 * ApplicationContextAware [12](https://www.youtube.com/watch?v=WUqyoH_G4Ko&list=PLC97BDEFDCDD169D7&index=12)
+* Bean Definition Inheritance [13](https://www.youtube.com/watch?v=LxRiFFEXs5I&index=13&list=PLC97BDEFDCDD169D7)
 
 
 ##Further Study

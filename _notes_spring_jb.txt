@@ -128,3 +128,28 @@
 12. Context Aware
     ApplicationContextAware interface : object gets container info
     BeanNameAware interface : object gets it's bean name
+
+13. Bean Definition Inheritance
+    <bean id="parenttriangle" class="com.iamtek.beandefinherit.Triangle">
+        <property name="pointA" ref="pointA"/>
+    </bean>
+    <bean id="triangle1" class="com.iamtek.beandefinherit.Triangle" parent="parenttriangle">
+        <property name="pointB" ref="pointB"/>
+        <property name="pointC" ref="pointC"/>
+    </bean>
+    <bean id="parenttriangle2" class="com.iamtek.beandefinherit.Triangle2">
+        <property name="points">
+            <list>
+                <ref bean="pointA"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="parenttriangle2" class="com.iamtek.beandefinherit.Triangle2" abstract="true">
+        <property name="points">
+            <list merge="true">
+                <ref bean="pointB"/>
+                <ref bean="pointC"/>
+            </list>
+        </property>
+    </bean>
+

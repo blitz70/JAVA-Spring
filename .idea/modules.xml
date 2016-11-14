@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaBrains/JavaBrains.iml" filepath="$PROJECT_DIR$/JavaBrains/JavaBrains.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBrains/Spring2-maven/Spring2-maven.iml" filepath="$PROJECT_DIR$/JavaBrains/Spring2-maven/Spring2-maven.iml" />
     </modules>
   </component>
 </project>
