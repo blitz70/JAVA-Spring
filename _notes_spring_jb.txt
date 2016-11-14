@@ -153,3 +153,31 @@
         </property>
     </bean>
 
+14. Lifecycle Callbacks
+    Spring
+        InitializingBean : calls a method at bean creation
+        DisposableBean : calls a method at bean destruction
+    Custom
+        For a bean : <bean init-method="..." destroy-method="...">
+        For beans : <beans default-init-method="..." default-destroy-method="...">
+15. BeanPostProcessor
+    No BeanAfterProcessor
+    Spring
+        BeanPostProcessor
+            Interface for creating custom BeanPostProcessor
+            Calls methods before & after bean creation
+16. BeanFactoryPostProcessor
+    No BeanFactoryAfterProcessor
+    Spring
+        BeanFactoryPostProcessor
+            Interface for creating custom BeanFactoryPostProcessor
+            Calls methods at container creation
+        PropertyPlaceholderConfigurer
+            Used for editing spring config file, references other files
+                <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+                    <property name="locations" value="pointsconfig.properties"/>
+                </bean>
+17. Coding To Interface
+    Core concept of DI
+
+

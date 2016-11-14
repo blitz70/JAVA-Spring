@@ -43,6 +43,10 @@ JAVA Spring framework study
 >* Concept [11](https://www.youtube.com/watch?v=NnNvDknQJt0&index=11&list=PLC97BDEFDCDD169D7)
 * ApplicationContextAware [12](https://www.youtube.com/watch?v=WUqyoH_G4Ko&list=PLC97BDEFDCDD169D7&index=12)
 * Bean Definition Inheritance [13](https://www.youtube.com/watch?v=LxRiFFEXs5I&index=13&list=PLC97BDEFDCDD169D7)
+* Lifecycle Callbacks [14](https://www.youtube.com/watch?v=8LCpo4sfdQU&index=14&list=PLC97BDEFDCDD169D7)
+* BeanPostProcessor [15](https://www.youtube.com/watch?v=-ycOZTpMkow&index=15&list=PLC97BDEFDCDD169D7)
+* BeanFactoryPostProcessor [16](https://www.youtube.com/watch?v=szNWTBlewQI&list=PLC97BDEFDCDD169D7&index=16)
+* Coding To Interface [17](https://www.youtube.com/watch?v=5IDIEMxdkC8&index=17&list=PLC97BDEFDCDD169D7)
 
 
 ##Further Study
