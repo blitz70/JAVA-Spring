@@ -48,6 +48,13 @@ JAVA Spring framework study
 * BeanFactoryPostProcessor [16](https://www.youtube.com/watch?v=szNWTBlewQI&list=PLC97BDEFDCDD169D7&index=16)
 * Coding To Interface [17](https://www.youtube.com/watch?v=5IDIEMxdkC8&index=17&list=PLC97BDEFDCDD169D7)
 
+* Annotations
+
+>* Introduction, @Required [18](https://www.youtube.com/watch?v=Fs_IoEGSP-A&list=PLC97BDEFDCDD169D7&index=18)
+* @Autowired [19](https://www.youtube.com/watch?v=IVIhVJJGo68&list=PLC97BDEFDCDD169D7&index=18#t=3.527528)
+* JSR-250 Annotations, @Resource [20](https://www.youtube.com/watch?v=apTEbKPW3ow&list=PLC97BDEFDCDD169D7&index=20)
+* Stereotype Annotations, @Component [21](https://www.youtube.com/watch?v=oTcSW4-_1Ew&list=PLC97BDEFDCDD169D7&index=21)
+
 
 ##Further Study
 

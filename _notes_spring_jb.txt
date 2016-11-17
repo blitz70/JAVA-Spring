@@ -180,4 +180,24 @@
 17. Coding To Interface
     Core concept of DI
 
-
+18-21. Annotations
+    XML setup
+        <beans xmlns="http://www.springframework.org/schema/beans"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans.xsd
+                    http://www.springframework.org/schema/context
+                    http://www.springframework.org/schema/context/spring-context.xsd"
+               xmlns:context="http://www.springframework.org/schema/context"/>
+        <context:annotation-config/> : Allows use of annotations
+        <context:component-scan base-package=""/> : Allows use of stereotypes
+    Annotations (@Resource, @Component)
+        18. @Required : Class dependency checker, container startup, use on setter
+        19. @Autowired : auto DI
+            <qualifier> gives error but works?
+        20. JSR-250 : Java Specification Request annotations, (javax)
+            @Resource : auto DI, better than @Autowired
+            @PostConstruct, @Predestroy : bean lifecycle
+        21. Stereotype Annotations
+            @Component : general bean DI, only one bean per class unlike XML config
+            @Service, @Repository, @Controller : bean DI with specific functions

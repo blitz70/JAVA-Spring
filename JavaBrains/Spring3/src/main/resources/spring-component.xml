@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:context="http://www.springframework.org/schema/context">
+
+    <bean id="pointZero" class="com.iamtek.stereotype.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="point2" class="com.iamtek.stereotype.Point">
+        <property name="x" value="-20"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="point3" class="com.iamtek.stereotype.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="20"/>
+    </bean>
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.iamtek"/>
+
+</beans>
+
+
+
