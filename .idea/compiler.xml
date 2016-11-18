@@ -22,12 +22,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="spring2" />
         <module name="Spring3" />
+        <module name="Spring3-annotations" />
+        <module name="spring3-annotations" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Spring2-maven" target="1.5" />
-      <module name="Spring3" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="spring2" target="1.5" />
+      <module name="spring3-annotations" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
