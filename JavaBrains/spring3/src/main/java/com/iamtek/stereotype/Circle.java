@@ -7,7 +7,6 @@ import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 @Component
-
 public class Circle implements Shape {
 
     @Resource(name = "pointZero")

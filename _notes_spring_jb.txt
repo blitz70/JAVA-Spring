@@ -201,3 +201,18 @@
         21. Stereotype Annotations
             @Component : general bean DI, only one bean per class unlike XML config
             @Service, @Repository, @Controller : bean DI with specific functions
+
+22. MessageSource
+    Concept
+        Get text from property(outside) files, separates text from code, localization
+    File
+        mymessages.properties
+    Container
+        <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+            <property name="basenames">
+                <list>
+                    <value>mymessages</value>
+                    ...
+                </list></property></bean>
+    App
+        messageSource.getMessage();
