@@ -216,3 +216,13 @@
                 </list></property></bean>
     App
         messageSource.getMessage();
+
+23. Event Handling
+    Concept
+        Publisher creates events, listener detects events
+    ApplicationListener
+        Event listener interface, implemented to class processing events
+    ApplicationEvent
+        Event object, can make custom event by inheritance
+    ApplicationEventPublisherAware
+        Event publisher interface, implemented to class firing events
