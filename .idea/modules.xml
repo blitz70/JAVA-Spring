@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaBrains/spring-annotations/spring-annotations.iml" filepath="$PROJECT_DIR$/JavaBrains/spring-annotations/spring-annotations.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBrains/spring-di/spring-di.iml" filepath="$PROJECT_DIR$/JavaBrains/spring-di/spring-di.iml" />
-      <module fileurl="file://$PROJECT_DIR$/JavaBrains/spring-lifecycles/spring-lifecycles.iml" filepath="$PROJECT_DIR$/JavaBrains/spring-lifecycles/spring-lifecycles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBrains/spring-aop/spring-aop.iml" filepath="$PROJECT_DIR$/JavaBrains/spring-aop/spring-aop.iml" />
     </modules>
   </component>
 </project>

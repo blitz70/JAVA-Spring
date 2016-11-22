@@ -48,6 +48,7 @@ JAVA Spring framework study
 * BeanFactoryPostProcessor [16](https://www.youtube.com/watch?v=szNWTBlewQI&list=PLC97BDEFDCDD169D7&index=16)
 
 * Coding To Interface [17](https://www.youtube.com/watch?v=5IDIEMxdkC8&index=17&list=PLC97BDEFDCDD169D7)
+
 * Annotations
 
 >* Introduction, @Required [18](https://www.youtube.com/watch?v=Fs_IoEGSP-A&list=PLC97BDEFDCDD169D7&index=18)
@@ -56,7 +57,15 @@ JAVA Spring framework study
 * Stereotype Annotations, @Component [21](https://www.youtube.com/watch?v=oTcSW4-_1Ew&list=PLC97BDEFDCDD169D7&index=21)
 
 * MessageSource [22](https://www.youtube.com/watch?v=cUqquQDZR-c&list=PLC97BDEFDCDD169D7&index=22)
+
 * Event Handling [23](https://www.youtube.com/watch?v=ZUe1Xz7DAcY&list=PLC97BDEFDCDD169D7&index=23)
+
+* AOP, Aspect Oriented Programming
+
+>* Introduction & Setup [24](https://www.youtube.com/watch?v=QdyLsX0nG30&index=1&list=PLE37064DE302862F8) [25](https://www.youtube.com/watch?v=4P0TME-AbSw&index=2&list=PLE37064DE302862F8)
+* Aspect, Advice [26](https://www.youtube.com/watch?v=D0ekfQNGgpY&list=PLE37064DE302862F8&index=3) [27](https://www.youtube.com/watch?v=4-z-YsRfSF0&index=4&list=PLE37064DE302862F8)
+* Pointcut [28](https://www.youtube.com/watch?v=h7IdaLybg9A&index=5&list=PLE37064DE302862F8) [29](https://www.youtube.com/watch?v=UxzTk57CJD8&list=PLE37064DE302862F8&index=6)
+
 
 ##Further Study
 

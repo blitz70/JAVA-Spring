@@ -226,3 +226,65 @@
         Event object, can make custom event by inheritance
     ApplicationEventPublisherAware
         Event publisher interface, implemented to class firing events
+
+24-28. AOP
+    Concept : Aspect Oriented Programming
+        Separate common code/process from core, take out cross concerning processes as aspects
+        Configure where aspects apply, existing code don't have to call these processes separately
+    Structure
+        Aspect : Class with group of common processes
+        Advice : A common process within an aspect
+            Advice don't work on aspect class?
+        Pointcut
+            Target where advice is to be applied to
+            Dummy aspect class method with aspect's target info
+    Setup
+        Library : add maven dependency
+            <dependency>
+              <groupId>org.aspectj</groupId>
+              <artifactId>aspectjweaver</artifactId>
+              <version>1.8.9</version>
+            </dependency>
+        Spring container : add aop namespace to spring container, register aop autoproxy
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:aop="http://www.springframework.org/schema/aop"
+                   xmlns:context="http://www.springframework.org/schema/context"
+                   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+                <aop:aspectj-autoproxy/>
+            </beans>
+        Aspect class
+            @Aspect
+            public class LoggingAspect {
+                advice methods...
+            }
+        Advice method
+            @Before("pointcut expression or method")
+            public void loggingAdvice(){
+                common process...
+            }
+        Pointcut method
+            @Pointcut("pointcut expression")
+            public void allGetters(){
+            }
+        Pointcut expression
+            execution(* get*(..))
+    Application
+        Advice to different points : method with wildcard pointcut or pointcut combinations
+        Different advices to one point : different advice methods at same pointcut
+    Pointcut expression
+        Type
+            execution() : method
+            within() : class
+            args() : argument
+        Combination
+            pointcut1 OR pointcut2, pc1 AND pc2
+        Wildcard : @Before("execution(* com.iamtek.*.get*(..))")
+            any access modifier, not mentioned
+            any return type
+            any class in com.iamtek package
+            method starts with get
+            parameter number zero or above, (*) one or above, () none
+
