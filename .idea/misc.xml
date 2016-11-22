@@ -8,6 +8,9 @@
       <list>
         <option value="$PROJECT_DIR$/JavaBrains/Spring3/pom.xml" />
         <option value="$PROJECT_DIR$/JavaBrains/spring2/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaBrains/spring-lifecycles/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaBrains/spring-annotations/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaBrains/spring-di/pom.xml" />
       </list>
     </option>
   </component>
