@@ -347,3 +347,21 @@
         Advice
             @Around("@annotation(com.iamtek.customadvice.CustomAdvice)")
 
+    XML AOP Configuration
+        Need
+            Legacy aop codes are done in XML
+            Use AOP as configuration
+        Configuration
+            Done in container within <aop:config>
+            @Aspect : <aop:aspect>
+            @Pointcut : <aop:pointcut>
+            @Around : <aop:around>
+        Eg
+            <aop:config>
+                <aop:aspect id="myAspect" ref="myAspect">
+                    <aop:pointcut id="allGet" expression="execution(* get*())"/>
+                    <aop:around pointcut-ref="allGet" method="myAdvice1"/>
+                    <!--<aop:around pointcut="execution(* get*())" method="myAdvice1"/>-->
+                </aop:aspect>
+            </aop:config>
+

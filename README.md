@@ -69,6 +69,7 @@ JAVA Spring framework study
 * @After, @AfterReturning, @AfterThrowing [31](https://www.youtube.com/watch?v=tU6eQh9Hmqk&index=8&list=PLE37064DE302862F8)
 * @Around [32](https://www.youtube.com/watch?v=jwRwHOIwwdQ&index=9&list=PLE37064DE302862F8)
 * Custom Advice Annotations [33](https://www.youtube.com/watch?v=Clz78J7SBKQ&list=PLE37064DE302862F8&index=10)
+* XML AOP Configuration [34](https://www.youtube.com/watch?v=ewWzxcNnI7k&list=PLE37064DE302862F8&index=11)
 
 ##Further Study
 
