@@ -232,11 +232,14 @@
         Separate common code/process from core, take out cross concerning processes as aspects
         Configure where aspects apply, existing code don't have to call these processes separately
     Structure
-        Aspect : Class with group of common processes
-        Advice : A common process within an aspect
-            Advice don't work on aspect class?
+        Advice : A common process with cross concerning nature
+            Don't work on aspect class members
+            Don't work during container initialization
+        Aspect : Class consisting of advices
+        Jointpoint
+            Possible target in the existing code where an aspect can be applied
         Pointcut
-            Target where advice is to be applied to
+            Means of selecting joinpoint for aspect application
             Dummy aspect class method with aspect's target info
     Setup
         Library : add maven dependency
@@ -276,9 +279,9 @@
         Different advices to one point : different advice methods at same pointcut
     Pointcut expression
         Type
-            execution() : method
-            within() : class
-            args() : argument
+            execution() : targets are method
+            within() : targets are class
+            args() : targets are methods of argument signature
         Combination
             pointcut1 OR pointcut2, pc1 AND pc2
         Wildcard : @Before("execution(* com.iamtek.*.get*(..))")
@@ -287,4 +290,26 @@
             any class in com.iamtek package
             method starts with get
             parameter number zero or above, (*) one or above, () none
+    JoinPoint
+        Has info of joinpoint
+        @Before("...")
+        public void myAdvice1(JoinPoint joinPoint){
+            Triangle triangle = (Triangle) joinPoint.getTarget();
+            ...
+        }
+    Advice Type
+        @Before : advice executes before target
+        @After... : advice executes after target
+            @After : all the time (finally)
+            @AfterReturning : on return without exception, can get returned object
+                @AfterReturning(pointcut = "...", returning = "returnValue")
+                public void myAdvice4(String returnValue){
+                    System.out.println("@AfterReturning Advice, return = "+ returnValue);
+                }
+            @AfterThrowing : on exception, can get exception object
+                @AfterThrowing(pointcut = "...", throwing = "exceptionValue")
+                public void myAdvice3(Exception exceptionValue){
+                    System.out.println("@AfterThrowing Advice, exception =" + exceptionValue);
+                }
+
 

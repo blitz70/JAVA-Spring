@@ -9,20 +9,24 @@ import org.springframework.stereotype.Component;
 @Component @Aspect
 public class MyAspect {
 
-    @Before("pointAllTriangle()")
+    @Before("allTriangle()")
     public void myAdvice1(JoinPoint joinPoint){
-        /*System.out.println("Advice run. Get Method called.");*/
-        System.out.println("Advice run.");
         Triangle triangle = (Triangle) joinPoint.getTarget();
+        System.out.println("Advice1: " + triangle.getName());
         triangle.setName("Aspect Triangle");
     }
 
+    @Before("args(arg)")
+    public void myAdvice2(String arg){
+        System.out.println("Advice2: method(String) called, arg = "+ arg);
+    }
+
     @Pointcut("execution(* get*(..))")
-    public void pointAllGet(){
+    public void allGet(){
     }
 
     @Pointcut("within(com.iamtek.joinpoint.Triangle)")
-    public void pointAllTriangle(){
+    public void allTriangle(){
     }
 
 }

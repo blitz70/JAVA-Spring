@@ -63,9 +63,11 @@ JAVA Spring framework study
 * AOP, Aspect Oriented Programming
 
 >* Introduction & Setup [24](https://www.youtube.com/watch?v=QdyLsX0nG30&index=1&list=PLE37064DE302862F8) [25](https://www.youtube.com/watch?v=4P0TME-AbSw&index=2&list=PLE37064DE302862F8)
-* Aspect, Advice [26](https://www.youtube.com/watch?v=D0ekfQNGgpY&list=PLE37064DE302862F8&index=3) [27](https://www.youtube.com/watch?v=4-z-YsRfSF0&index=4&list=PLE37064DE302862F8)
+* Aspect, Advice, @Before [26](https://www.youtube.com/watch?v=D0ekfQNGgpY&list=PLE37064DE302862F8&index=3) [27](https://www.youtube.com/watch?v=4-z-YsRfSF0&index=4&list=PLE37064DE302862F8)
 * Pointcut [28](https://www.youtube.com/watch?v=h7IdaLybg9A&index=5&list=PLE37064DE302862F8) [29](https://www.youtube.com/watch?v=UxzTk57CJD8&list=PLE37064DE302862F8&index=6)
-
+* JoinPoint [30](https://www.youtube.com/watch?v=nrAN0E_A7fc&index=7&list=PLE37064DE302862F8)
+* @After, @AfterReturning, @AfterThrowing [31](https://www.youtube.com/watch?v=tU6eQh9Hmqk&index=8&list=PLE37064DE302862F8)
+* @Around [32](https://www.youtube.com/watch?v=jwRwHOIwwdQ&index=9&list=PLE37064DE302862F8)
 
 ##Further Study
 

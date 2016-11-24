@@ -1,4 +1,4 @@
-package com.iamtek.joinpoint;
+package com.iamtek.after;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -7,12 +7,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-joinpoint.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-after.xml");
         ShapeService shapeService = ctx.getBean("shapeService", ShapeService.class);
-        System.out.println("Main: " + shapeService.getTriangle().getName());
+        try {
+            shapeService.getCircle().setName("New Circle");
+        } catch (Exception e) {
+        }
         shapeService.getTriangle().setName("New Triangle");
-        System.out.println("Main: " + shapeService.getTriangle().getName());
-
+        shapeService.getTriangle().setName2("New2 Triangle");
 
     }
 
