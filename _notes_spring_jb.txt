@@ -160,12 +160,14 @@
     Custom
         For a bean : <bean init-method="..." destroy-method="...">
         For beans : <beans default-init-method="..." default-destroy-method="...">
+
 15. BeanPostProcessor
     No BeanAfterProcessor
     Spring
         BeanPostProcessor
             Interface for creating custom BeanPostProcessor
             Calls methods before & after bean creation
+
 16. BeanFactoryPostProcessor
     No BeanFactoryAfterProcessor
     Spring
@@ -177,6 +179,7 @@
                 <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
                     <property name="locations" value="pointsconfig.properties"/>
                 </bean>
+
 17. Coding To Interface
     Core concept of DI
 
@@ -227,10 +230,12 @@
     ApplicationEventPublisherAware
         Event publisher interface, implemented to class firing events
 
-24-28. AOP
+24-32. AOP
+
     Concept : Aspect Oriented Programming
         Separate common code/process from core, take out cross concerning processes as aspects
         Configure where aspects apply, existing code don't have to call these processes separately
+
     Structure
         Advice : A common process with cross concerning nature
             Don't work on aspect class members
@@ -241,6 +246,7 @@
         Pointcut
             Means of selecting joinpoint for aspect application
             Dummy aspect class method with aspect's target info
+
     Setup
         Library : add maven dependency
             <dependency>
@@ -274,9 +280,11 @@
             }
         Pointcut expression
             execution(* get*(..))
+
     Application
         Advice to different points : method with wildcard pointcut or pointcut combinations
         Different advices to one point : different advice methods at same pointcut
+
     Pointcut expression
         Type
             execution() : targets are method
@@ -290,6 +298,7 @@
             any class in com.iamtek package
             method starts with get
             parameter number zero or above, (*) one or above, () none
+
     JoinPoint
         Has info of joinpoint
         @Before("...")
@@ -297,10 +306,11 @@
             Triangle triangle = (Triangle) joinPoint.getTarget();
             ...
         }
+
     Advice Type
         Guide : use minimum
-        @Before : advice executes before target
-        @After... : advice executes after target
+        @Before : aspect executes before target
+        @After... : aspect executes after target
             @After : all the time (finally)
             @AfterReturning : on return without exception, can get returned object
                 @AfterReturning(pointcut = "...", returning = "returnValue")
@@ -312,7 +322,7 @@
                 public void myAdvice3(Exception exceptionValue){
                     System.out.println("@AfterThrowing Advice, exception =" + exceptionValue);
                 }
-        @Around : advice executes around target
+        @Around : aspect executes around target
             @Around("allGet()")
             public Object myAdvice1(ProceedingJoinPoint joinPoint) {
                 Object obj = null;
@@ -328,4 +338,12 @@
                 }
             }
 
+    Custom Advice Annotation
+        Concept
+            A dummy annotation acts as pointcut for aspect to be applied
+            Add the annotation to anyplace where aspect is needed
+        Dummy annotation
+            public @interface CustomAdvice {}
+        Advice
+            @Around("@annotation(com.iamtek.customadvice.CustomAdvice)")
 
