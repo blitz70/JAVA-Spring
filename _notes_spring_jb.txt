@@ -230,7 +230,7 @@
     ApplicationEventPublisherAware
         Event publisher interface, implemented to class firing events
 
-24-32. AOP
+24-35. AOP
 
     Concept : Aspect Oriented Programming
         Separate common code/process from core, take out cross concerning processes as aspects
@@ -365,3 +365,4 @@
                 </aop:aspect>
             </aop:config>
 
+    AOP Proxy
