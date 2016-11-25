@@ -24,12 +24,9 @@ JAVA Spring framework study
 
 ##2. [(Java Brains)](https://javabrains.io/ "Java Brains") video [01-23](https://www.youtube.com/playlist?list=PLC97BDEFDCDD169D7) [24-35](https://www.youtube.com/playlist?list=PLE37064DE302862F8) [36-45](https://www.youtube.com/playlist?list=PL1A506B159E5BD13E), English, IntelliJ
 
-* Introduction
+* Introduction [1](https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=1) [3](https://www.youtube.com/watch?v=xlWwMSu5I70&index=3&list=PLC97BDEFDCDD169D7) [2](https://www.youtube.com/watch?v=Z5gubdHLJIc&list=PLC97BDEFDCDD169D7&index=2)
 
->* Concept [1](https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=1) [3](https://www.youtube.com/watch?v=xlWwMSu5I70&index=3&list=PLC97BDEFDCDD169D7)
-* Setup [2](https://www.youtube.com/watch?v=Z5gubdHLJIc&list=PLC97BDEFDCDD169D7&index=2)
-
-* Dependency Injection
+* DI, Dependency Injection
 
 >* Concept [4](https://www.youtube.com/watch?v=7c6ZTF6cF88&index=4&list=PLC97BDEFDCDD169D7)
 * Injection Methods, Setter & Constructor [5](https://www.youtube.com/watch?v=ZxLaEovze3M&list=PLC97BDEFDCDD169D7&index=5) [6](https://www.youtube.com/watch?v=IOZzxmJVus0&index=6&list=PLC97BDEFDCDD169D7)
@@ -46,7 +43,6 @@ JAVA Spring framework study
 * Lifecycle Callbacks [14](https://www.youtube.com/watch?v=8LCpo4sfdQU&index=14&list=PLC97BDEFDCDD169D7)
 * BeanPostProcessor [15](https://www.youtube.com/watch?v=-ycOZTpMkow&index=15&list=PLC97BDEFDCDD169D7)
 * BeanFactoryPostProcessor [16](https://www.youtube.com/watch?v=szNWTBlewQI&list=PLC97BDEFDCDD169D7&index=16)
-
 * Coding To Interface [17](https://www.youtube.com/watch?v=5IDIEMxdkC8&index=17&list=PLC97BDEFDCDD169D7)
 
 * Annotations
@@ -55,10 +51,7 @@ JAVA Spring framework study
 * @Autowired [19](https://www.youtube.com/watch?v=IVIhVJJGo68&list=PLC97BDEFDCDD169D7&index=18#t=3.527528)
 * JSR-250 Annotations, @Resource [20](https://www.youtube.com/watch?v=apTEbKPW3ow&list=PLC97BDEFDCDD169D7&index=20)
 * Stereotype Annotations, @Component [21](https://www.youtube.com/watch?v=oTcSW4-_1Ew&list=PLC97BDEFDCDD169D7&index=21)
-
-* MessageSource [22](https://www.youtube.com/watch?v=cUqquQDZR-c&list=PLC97BDEFDCDD169D7&index=22)
-
-* Event Handling [23](https://www.youtube.com/watch?v=ZUe1Xz7DAcY&list=PLC97BDEFDCDD169D7&index=23)
+* MessageSource, Event Handling [22](https://www.youtube.com/watch?v=cUqquQDZR-c&list=PLC97BDEFDCDD169D7&index=22) [23](https://www.youtube.com/watch?v=ZUe1Xz7DAcY&list=PLC97BDEFDCDD169D7&index=23)
 
 * AOP, Aspect Oriented Programming
 

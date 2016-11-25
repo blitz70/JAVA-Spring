@@ -366,3 +366,5 @@
             </aop:config>
 
     AOP Proxy
+        Concept
+            Means of AOP implementation within OOP

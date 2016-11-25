@@ -3,13 +3,12 @@ package com.iamtek.aopproxy;
 public class MyFactory {
 
 
-    public Object getBean(String beanName) {
+    public <T> T getBean(String beanName) {
 
-        Object bean = null;
-        if(beanName.equals("shapeService")) bean = new ShapeService();
-        if(beanName.equals("circle")) bean = new Circle();
-        if(beanName.equals("triangle")) bean = new Triangle();
-        if (beanName.equals("myAspect")) bean = new MyAspect();
+        T bean = null;
+        if (beanName.equals("shapeService")) bean = (T) new ShapeServiceProxy();
+        if (beanName.equals("circle")) bean = (T) new Circle();
+        if (beanName.equals("triangle")) bean = (T) new Triangle();
         return bean;
 
     }
