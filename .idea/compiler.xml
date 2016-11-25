@@ -22,7 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="spring-aop" />
+        <module name="spring-data" />
         <module name="spring2-lifecycles" />
         <module name="Spring3" />
         <module name="Spring3-annotations" />
@@ -32,6 +32,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="spring-annotations" target="1.5" />
       <module name="spring-aop" target="1.5" />
+      <module name="spring-data" target="1.5" />
       <module name="spring-di" target="1.5" />
       <module name="spring-lifecycles" target="1.5" />
       <module name="spring10_AOP2" target="1.5" />

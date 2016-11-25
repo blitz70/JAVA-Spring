@@ -368,3 +368,20 @@
     AOP Proxy
         Concept
             Means of AOP implementation within OOP
+
+36. Data Support
+
+    Setup
+        Server(startNetworkServer.bat)
+            Derby comes with Java SE
+            startNetworkServer.bat
+        Client(ij.bat)
+            Connect 'jdbc:derby://localhost:1527/db;create=true';
+        Library : add derby to maven dependency
+            Client
+                <dependency>
+                  <groupId>org.apache.derby</groupId>
+                  <artifactId>derbyclient</artifactId>
+                  <version>10.13.1.1</version>
+                </dependency>
+

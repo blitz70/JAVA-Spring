@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaBrains/spring-aop/spring-aop.iml" filepath="$PROJECT_DIR$/JavaBrains/spring-aop/spring-aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBrains/spring-data/spring-data.iml" filepath="$PROJECT_DIR$/JavaBrains/spring-data/spring-data.iml" />
     </modules>
   </component>
 </project>

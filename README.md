@@ -24,11 +24,11 @@ JAVA Spring framework study
 
 ##2. [(Java Brains)](https://javabrains.io/ "Java Brains") video [01-23](https://www.youtube.com/playlist?list=PLC97BDEFDCDD169D7) [24-35](https://www.youtube.com/playlist?list=PLE37064DE302862F8) [36-45](https://www.youtube.com/playlist?list=PL1A506B159E5BD13E), English, IntelliJ
 
-* Introduction [1](https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=1) [3](https://www.youtube.com/watch?v=xlWwMSu5I70&index=3&list=PLC97BDEFDCDD169D7) [2](https://www.youtube.com/watch?v=Z5gubdHLJIc&list=PLC97BDEFDCDD169D7&index=2)
 
 * DI, Dependency Injection
 
->* Concept [4](https://www.youtube.com/watch?v=7c6ZTF6cF88&index=4&list=PLC97BDEFDCDD169D7)
+>* Introduction & Setup [1](https://www.youtube.com/watch?v=GB8k2-Egfv0&list=PLC97BDEFDCDD169D7&index=1) [2](https://www.youtube.com/watch?v=Z5gubdHLJIc&list=PLC97BDEFDCDD169D7&index=2) [3](https://www.youtube.com/watch?v=xlWwMSu5I70&index=3&list=PLC97BDEFDCDD169D7)
+* Concept [4](https://www.youtube.com/watch?v=7c6ZTF6cF88&index=4&list=PLC97BDEFDCDD169D7)
 * Injection Methods, Setter & Constructor [5](https://www.youtube.com/watch?v=ZxLaEovze3M&list=PLC97BDEFDCDD169D7&index=5) [6](https://www.youtube.com/watch?v=IOZzxmJVus0&index=6&list=PLC97BDEFDCDD169D7)
 * Object Injection [7](https://www.youtube.com/watch?v=g15RcFyEcrk&list=PLC97BDEFDCDD169D7&index=7)
 * Inner Bean, Alias [8](https://www.youtube.com/watch?v=TW51XsixMqA&list=PLC97BDEFDCDD169D7&index=8)
@@ -37,7 +37,7 @@ JAVA Spring framework study
 
 * Bean Scopes & Life Cycles
 
->* Concept [11](https://www.youtube.com/watch?v=NnNvDknQJt0&index=11&list=PLC97BDEFDCDD169D7)
+>* Introduction [11](https://www.youtube.com/watch?v=NnNvDknQJt0&index=11&list=PLC97BDEFDCDD169D7)
 * ApplicationContextAware [12](https://www.youtube.com/watch?v=WUqyoH_G4Ko&list=PLC97BDEFDCDD169D7&index=12)
 * Bean Definition Inheritance [13](https://www.youtube.com/watch?v=LxRiFFEXs5I&index=13&list=PLC97BDEFDCDD169D7)
 * Lifecycle Callbacks [14](https://www.youtube.com/watch?v=8LCpo4sfdQU&index=14&list=PLC97BDEFDCDD169D7)
@@ -64,6 +64,11 @@ JAVA Spring framework study
 * Custom Advice Annotations [33](https://www.youtube.com/watch?v=Clz78J7SBKQ&list=PLE37064DE302862F8&index=10)
 * XML AOP Configuration [34](https://www.youtube.com/watch?v=ewWzxcNnI7k&list=PLE37064DE302862F8&index=11)
 * AOP Proxy [35](https://www.youtube.com/watch?v=yiinKulgm4U&list=PLE37064DE302862F8&index=12)
+
+* Data Support
+
+>* Introduction & Setup, Derby [36](https://www.youtube.com/watch?v=eR_JFtqyNL4&list=PL1A506B159E5BD13E)
+* Pure JDBC [37](https://www.youtube.com/watch?v=B3gEbC37DAM&index=2&list=PL1A506B159E5BD13E)
 
 ##Further Study
 
