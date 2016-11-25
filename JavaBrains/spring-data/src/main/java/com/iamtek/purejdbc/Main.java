@@ -1,10 +1,11 @@
 package com.iamtek.purejdbc;
 
+//no spring
 public class Main {
 
     public static void main(String[] args) {
 
-        //connection test
+        //pure jdbc connection
         JdbcDaoImpl dao = new JdbcDaoImpl();
         dao.test();
 

@@ -67,8 +67,9 @@ JAVA Spring framework study
 
 * Data Support
 
->* Introduction & Setup, Derby [36](https://www.youtube.com/watch?v=eR_JFtqyNL4&list=PL1A506B159E5BD13E)
-* Pure JDBC [37](https://www.youtube.com/watch?v=B3gEbC37DAM&index=2&list=PL1A506B159E5BD13E)
+>* Introduction & Setup [36](https://www.youtube.com/watch?v=eR_JFtqyNL4&list=PL1A506B159E5BD13E) [37](https://www.youtube.com/watch?v=B3gEbC37DAM&index=2&list=PL1A506B159E5BD13E)
+* DataSource & DBCP [38](https://www.youtube.com/watch?v=f-k823MZ02Q&index=3&list=PL1A506B159E5BD13E)
+* JdbcTemplate [39](https://www.youtube.com/watch?v=0LYqy0wvS20&index=4&list=PL1A506B159E5BD13E)
 
 ##Further Study
 
