@@ -1,4 +1,4 @@
-package com.iamtek.jdbctemplate;
+package com.iamtek.rowmapper;
 
 public class Circle {
 

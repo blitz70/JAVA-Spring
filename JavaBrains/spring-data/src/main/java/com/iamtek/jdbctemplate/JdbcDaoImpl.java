@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 @Component
 public class JdbcDaoImpl {
 
-
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
 
@@ -24,27 +23,28 @@ public class JdbcDaoImpl {
     @Resource
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
-
-    public JdbcTemplate getJdbcTemplate() {
-        return jdbcTemplate;
-    }
-
-    @Resource
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-
-
 
     Connection conn;
     PreparedStatement ps;
-    String sql;
     ResultSet rs;
+    String sql;
+
+    public String getCircleName(int id){
+        sql = "SELECT name FROM circle WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, String.class, new Object[]{id});
+    }
 
     public int getCircleCount(){
         sql = "SELECT COUNT(*) FROM circle";
         return jdbcTemplate.queryForObject(sql, Integer.class);
+    }
+
+    public Circle getCircle1(int id){
+        sql = "SELECT name FROM circle WHERE id = ?";
+        String name = jdbcTemplate.queryForObject(sql, String.class, new Object[]{id});
+        return new Circle(id, name);
     }
 
     public Circle getCircle(int id){
@@ -76,7 +76,6 @@ public class JdbcDaoImpl {
             System.out.println("Connecting");
             conn = dataSource.getConnection();
             System.out.println("Connection success!");
-            conn.close();
         } catch (Exception e) {
             System.out.println("Connection failed!");
         } finally {

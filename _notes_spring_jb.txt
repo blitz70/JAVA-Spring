@@ -376,7 +376,9 @@
             Derby comes with Java SE
             startNetworkServer.bat
         Client(ij.bat)
-            Connect 'jdbc:derby://localhost:1527/db;create=true';
+            CONNECT 'jdbc:derby://localhost:1527/db;create=true';
+            CREATE TABLE circle (id integer, name char(50));
+            INSERT INTO circle VALUES (1, 'First Circle');
         Library : add maven dependency
             Derby Client
                 <dependency>
@@ -396,6 +398,17 @@
                   <artifactId>commons-dbcp2</artifactId>
                   <version>2.1.1</version>
                 </dependency>
+            DI
+                DataSource
+                JdbcTemplate
 
+    JdbcTemplate
+            public String getCircleName(int id){
+                sql = "SELECT name FROM circle WHERE id = ?";
+                Object[] args = new Object[]{id};
+                return jdbcTemplate.queryForObject(sql, String.class, args);
+            }
+
+    RowMapper
 
 

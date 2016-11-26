@@ -9,8 +9,7 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config />
-
-    <context:component-scan base-package="com.iamtek.jdbctemplate"/>
+    <context:component-scan base-package="com.iamtek.rowmapper"/>
 
     <!--DBCP-->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
