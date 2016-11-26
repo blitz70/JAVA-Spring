@@ -403,12 +403,20 @@
                 JdbcTemplate
 
     JdbcTemplate
-            public String getCircleName(int id){
-                sql = "SELECT name FROM circle WHERE id = ?";
-                Object[] args = new Object[]{id};
-                return jdbcTemplate.queryForObject(sql, String.class, args);
-            }
-
+        Select
+            one : queryForObject()
+            many : query()
+        Write
+            update()
+        General
+            execute()
     RowMapper
+    Data language concept
+        DDL(Data definition language)
+            Related to data structures, create drop alter rename truncate
+        DML, Data manipulation language
+            Related to data values, select insert update delete
+        DCL, Data control language
+            Related to data access, grant revoke
 
 

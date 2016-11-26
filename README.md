@@ -71,6 +71,7 @@ JAVA Spring framework study
 * DataSource & DBCP [38](https://www.youtube.com/watch?v=f-k823MZ02Q&index=3&list=PL1A506B159E5BD13E)
 * JdbcTemplate [39](https://www.youtube.com/watch?v=0LYqy0wvS20&index=4&list=PL1A506B159E5BD13E) [40](https://www.youtube.com/watch?v=QrU6UI_bSbU&index=5&list=PL1A506B159E5BD13E)
 * RowMapper [41](https://www.youtube.com/watch?v=i-_CUlER3z8&index=6&list=PL1A506B159E5BD13E)
+* Write [42](https://www.youtube.com/watch?v=BiSIAzSZHpY&index=7&list=PL1A506B159E5BD13E)
 
 ##Further Study
 
