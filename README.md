@@ -72,6 +72,7 @@ JAVA Spring framework study
 * JdbcTemplate [39](https://www.youtube.com/watch?v=0LYqy0wvS20&index=4&list=PL1A506B159E5BD13E) [40](https://www.youtube.com/watch?v=QrU6UI_bSbU&index=5&list=PL1A506B159E5BD13E) [41](https://www.youtube.com/watch?v=i-_CUlER3z8&index=6&list=PL1A506B159E5BD13E) [42](https://www.youtube.com/watch?v=BiSIAzSZHpY&index=7&list=PL1A506B159E5BD13E)
 * NamedParameterJdbcTemplate [43](https://www.youtube.com/watch?v=W_9DJYXuhwk&list=PL1A506B159E5BD13E&index=8)
 * DAO Support Classes [44](https://www.youtube.com/watch?v=UOyjFjilPIo&list=PL1A506B159E5BD13E&index=9)
+* Hibernate [45](https://www.youtube.com/watch?v=0lqlg5tnDag&index=10&list=PL1A506B159E5BD13E)
 
 ##Further Study
 
