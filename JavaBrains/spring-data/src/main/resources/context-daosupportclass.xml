@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.iamtek.daosupportclass"/>
+
+    <!--DBCP-->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
+        <property name="url" value="jdbc:derby://localhost:1527/db;create=true"/>
+        <property name="initialSize" value="2"/>
+        <property name="maxTotal" value="5"/>
+    </bean>
+    <!--JdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--NamedParameterJdbcTemplate-->
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    <bean id="namedParameterJdbcDaoImp" class="com.iamtek.daosupportclass.NamedParameterJdbcDaoImp">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>
