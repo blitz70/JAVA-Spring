@@ -369,7 +369,7 @@
         Concept
             Means of AOP implementation within OOP
 
-36. Data Support
+36-44. Data Support
 
     Setup
         Server(startNetworkServer.bat)
@@ -418,5 +418,6 @@
             Related to data values, select insert update delete
         DCL, Data control language
             Related to data access, grant revoke
+    NamedParameterJdbcTemplate
 
 
