@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/JavaBrains/spring-annotations" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaBrains/spring-aop" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaBrains/spring-aop-hibernate" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaBrains/spring-data" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaBrains/spring-di" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaBrains/spring-lifecycles" charset="UTF-8" />
