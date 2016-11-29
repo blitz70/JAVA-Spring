@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-data" />
+        <module name="spring-aop-hibernate" />
         <module name="spring2-lifecycles" />
         <module name="Spring3" />
         <module name="Spring3-annotations" />

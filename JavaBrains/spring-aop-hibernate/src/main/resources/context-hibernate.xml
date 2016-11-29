@@ -8,6 +8,7 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <aop:aspectj-autoproxy/>
     <context:annotation-config />
     <context:component-scan base-package="com.iamtek.hibernate"/>
 
@@ -18,12 +19,15 @@
         <property name="initialSize" value="2"/>
         <property name="maxTotal" value="5"/>
     </bean>
+    <!--Hibernate-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="com.iamtek.hibernate"/>
         <property name="hibernateProperties">
             <props>
-                <prop key="dialect">org.hibernate.dialect.DB2Dialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.DB2Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
     </bean>
